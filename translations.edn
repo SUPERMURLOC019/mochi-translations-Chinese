@@ -1122,352 +1122,353 @@
   :pages.review/shuffle-button:tooltip "Randomize the order of cards"}
 
 
- :ja {:side-bar/dashboard "ダッシュボード"
-      :side-bar/new-cards "新規カード"
-      :side-bar/settings "設定"
-      :side-bar/due-today "今日の復習"
-      :side-bar/jump-to "検索"
-      :side-bar/add-deck "新規デッキ"
-      :side-bar/inbox     "受信トレイ"
-
-      :side-bar.account/log-in   "ログイン"
-      :side-bar.account/log-out   "ログアウト"
+ :ja
+ {:side-bar/dashboard "ダッシュボード"
+  :side-bar/new-cards "新規カード"
+  :side-bar/settings "設定"
+  :side-bar/due-today "今日の復習"
+  :side-bar/jump-to "検索"
+  :side-bar/add-deck "新規デッキ"
+  :side-bar/inbox     "受信トレイ"
+
+  :side-bar.account/log-in   "ログイン"
+  :side-bar.account/log-out   "ログアウト"
 
-      :side-bar.account/sign-up  "登録する"
-      :sign-up/heading           "登録"
-      :sign-up/submit            "登録する"
-      :sign-up/submit-loading    "登録中…"
-      :sign-up.checkout/heading "チェックアウト"
+  :side-bar.account/sign-up  "登録する"
+  :sign-up/heading           "登録"
+  :sign-up/submit            "登録する"
+  :sign-up/submit-loading    "登録中…"
+  :sign-up.checkout/heading "チェックアウト"
+
+  :side-bar.account/logged-out "ゲスト"
+  :side-bar.account/offline "オフライン"
 
-      :side-bar.account/logged-out "ゲスト"
-      :side-bar.account/offline "オフライン"
+  :onboarding/go-back "← 戻る"
+  :onboarding/welcome "Mochiへようこそ！"
+  :onboarding/desc "Mochiは、物事を覚えるためのメモやフラッシュカードを作成するためのツールです。"
+  :onboarding/get-started "開始"
+  :onboarding/already-have-an-account? "アカウントをお持ちですか？"
+  :onboarding/log-in "ログイン"
 
-      :onboarding/go-back "← 戻る"
-      :onboarding/welcome "Mochiへようこそ！"
-      :onboarding/desc "Mochiは、物事を覚えるためのメモやフラッシュカードを作成するためのツールです。"
-      :onboarding/get-started "開始"
-      :onboarding/already-have-an-account? "アカウントをお持ちですか？"
-      :onboarding/log-in "ログイン"
-
-      :log-in-form/title "ログインする"
-      :log-in-form/desc "Mochi Proアカウントをお持ちの方、 下記からログインしてカードとデータを同期してください。"
-      :log-in/email:placeholder    "電子メール"
-      :log-in/password:placeholder "パスワード"
-      :log-in/submit     "ログイン"
-      :log-in/submitting "ログイン中…"
-      :log-in/forgot-password?     "パスワードをお忘れですか？"
-
-      :password-recovery/title "パスワード復旧"
-      :password-recovery/desc "パスワードの変更に使用できるトークンをメールでお送りします。"
-
-      :log-in/send-token "トークンを送る"
-      :log-in/sending-token "送る中…"
-
-
-      :history-tooltip "このカードの復習のログ"
-      :history "復習のログ"
-
-      :finished-reviews "今日は完成！"
-      :finished-learning "今日は完成！"
-
-      :delete "ゴミ箱に移動"
-      :delete-card "カードを消去する"
-      :delete-note "メモを消去する"
-      :delete-deck "デッキを消去する"
-      :export "エクスポートする"
-      :export-note "メモをエクスポートする"
-      :export-deck "デッキをエクスポートする"
-
-      :edit "編集"
-      :edit-note "メモを編集する"
-      :edit-card "カードを編集する"
-
-      ;; Import progress modal
-      :importing "インポート中…"
-      :exporting "エクスポート中…"
-      :import "インポート"
-
-      :default-deck-name "新規デッキ"
-      :selection-popover/add-card "新規カード" ;; Make card from selection
-      :save "保存"
-      :saving "保存中"
-      :cancel "キャンセル"
-      :new "新規"
-      :back "前に"
-
-      :card-content-placeholder "何かが覚えたい？"
-
-      :pages.deck.review-button/label       "カードを復習する"
-      :pages.deck.review-button/label:empty "今日のカードなし"
-
-      :pages.deck.learn-button/label       "新規カード"
-      :pages.deck.learn-button/label:empty "新規カードなし"
-
-      :pages.deck.quick-review-button/label   "総学習"
-
-      :no-due-cards "今日のカードなし"
-      :copy-link "ＩＤをコピー"
-
-      :move-card-to "移動…"
-
-      ;; Review History
-      :learned "覚えた"
-
-      :preview "プレビュー"
-
-      :are-you-sure-you-want-to-delete-deck
-        "このデッキを消去しますか？"
-      :yes-delete-deck "はい、消去する。"
-      :are-you-sure-you-want-to-delete-note
-        "このメモを消去しますか？"
-      :yes-delete-note "はい、消去する。"
-
-      :make-cards-from-note "Make cards from this note"
-      :make-cards-tooltip "このメーモからカードを自動的に作成する"
-
-      :cant-find-note "このメモを探すのはできません！"
-      :cant-find-deck "このデックを探すのはできません！"
-
-      :note-content-placeholder "何が書きたいですか？"
-
-      :add-to-reviews "復習に追加"
-
-      :add-card "新規カード"
-
-      ;; [スペース]キーを押して「覚えている」にマークするか、[F]キーを押して「忘れた」にマークしてください。
-      :review/last-side-hint
-      (fn [r f]
-        [:<> r "キーを押して「覚えている」にマークするか、" f "キーを押して「忘れた」にマークしてください。"])
-        ; [:<> "Press " r " to mark as remembered, or " f " as forgot."])
-
-      :learn/last-side-hint
-      (fn [r f] [:<> "Press " r " to add to reviews, or " f " review again."])
-
-      ;; Modal message
-      :imported-deck-already-exists "このデックはもうあります。"
-      :imported-note-already-exists "このメーモはもうあります。"
-      :imported-card-already-exists "このカードはもうあります。"
-
-      ;; Auto card generation from notes.
-      :no-new-cards-found "新規カードを見つけられません。"
-
-      :auto-update
-      {:auto-update.status/download-and-install "ダウンロードしてインストールする"
-       :auto-update.status/update-available "新しいバージョンが利用可能になりました！"
-       :auto-update.status/beta-available   [:<> "新しい" [:strong "ベータ版"] "が公開されました！"]
-       :auto-update.status/desc
-       (fn [update-version]
-         [:<>
-          "新着情報は"
-          [:a {:style {:font-style "italic"
-                       :text-decoration "underline"
-                       "&:hover" {:text-decoration "underline"}}
-               :href (if (includes? update-version "beta")
-                       "https://mochi.cards/beta-changelog/"
-                       "https://mochi.cards/changelog/")
-               :target "_blank"}
-           "こちらをご覧ください。"]])
-       :auto-update.status/backing-up       "バックアップ中……"
-       :auto-update.status/backing-up-desc  "ローカルデータのバックアップが実行されています。"
-       :auto-update.status/downloading      "ダウンロード中..."
-       :auto-update.status/downloaded       "ダウンロード完了"
-       :auto-update.status/downloaded-desc  "再起動してインストールしてください。"
-       :auto-update.status/failed           "更新に失敗しました"
-       :auto-update.status/failed:desc      (fn [msg]
-                                              [:<>
-                                               "更新の確認中にエラーが発生しました。 "
-                                               (when msg
-                                                 [:<> [:br] msg])])}
-
-      :update-credit-card "クレジットカードを変える"
-      :updating-credit-card "クレジットカードを変える中"
-
-      :account-settings "アカウントの設定"
-
-      :all-synced "All synced"
-      :syncing "同期中…"
-      :reconnecting "Retrying..."
-      :sync-failed "Sync failed"
-
-      :archive-note "メモをアーカイブ"
-      :archive-deck "デックをアーカイブ"
-      :archived "アーカイブ"
-
-      :trash "ゴミ箱"
-
-      :breadcrumb/go-to-deck (fn [deck-name] (str deck-name "に行く"))
-
-      :chart/total-cards-learned      "累計学習カード数"
-      :chart/number-of-cards-learned  "学習カード数"
-      :chart/number-of-cards-reviewed "レビュー数"
-      :chart/retention-rate           "定着率"
-      :chart/review-time              "レビュー時間"
-      :chart/review-forecast          "レビュー予測"
-      :chart/intervals                "間隔"
-
-      :chart/previous-period          " 前期間"
-
-      :dashboard.stats/today "今日"
-      :dashboard.stats/all-time "全期間"
-      :dashboard.stats/average "平均"
-
-      :dashboard/overview "概要"
-
-      :dashboard.deck-selector/all-decks "すべてのデッキ"
-      :dashboard.deck-selector/placeholder "デッキを検索"
-
-      :dashboard.charts/period
-      (fn [period]
-        (let [[num unit] period]
-          (if (= num :all)
-            "全期間"
-            (str "過去" num (case unit
-                              :days "日"
-                              :weeks "週間"
-                              :months "か月"
-                              (name unit))))))
-
-      :dashboard.charts/segment
-      (fn [segment]
-        (case segment
-          :days "日別"
-          :weeks "週別"
-          :months "月別"
-          "不明"))
-
-      :pages.dashboard.duration/hour "時間"
-      :pages.dashboard.duration/minute "分"
-      :pages.dashboard.duration/second "秒"
-
-      :pages.dashboard.charts.deck-progress/title "デッキの進捗"
-      :pages.dashboard.charts.deck-progress.select-deck/placeholder "デッキを検索"
-      :pages.dashboard.charts.deck-progress/details "詳細"
-
-      :pages.dashboard.stats/cards-learned "学習カード数"
-      :pages.dashboard.stats/cards-learned-average "1日平均学習カード数"
-
-      :pages.dashboard.stats/retention-rate "定着率"
-
-      :pages.dashboard.stats/total-reviews "総レビュー数"
-      :pages.dashboard.stats/total-reviews-average "1日平均レビュー数"
-
-      :pages.dashboard.stats/review-time "レビュー時間"
-      :pages.dashboard.stats/review-time-average "1日平均時間"
-
-      :pages.dashboard.review-heatmap/title "レビュー活動"
-      :pages.dashboard.review-heatmap/summary
-      (fn [total-reviews total-days active-days]
-        [:<>
-         [:strong (intcomma total-reviews)]
-         " 回のレビュー • "
-         [:strong (intcomma total-days)]
-         " 日間 • "
-         [:strong (intcomma active-days)]
-         " アクティブ日"])
-
-      :pages.dashboard.review-heatmap/tooltip
-      (fn [num date]
-        (str date "に" num "回レビュー"))
-
-      :search-placeholder "このデッキの中に検索"
-
-      :interval-settings "復習の設定"
-
-      :template-settings "テンプレート"
-      :template-settings/title "テンプレート"
-      :template-settings/subtitle "新規カードを作ったら指定テンプレートが利用されます。またカードずつのテンプレートを指定することができます。テンプレートなしの場合は、カードで直接的になんでも書ける。"
-      :template-settings/new-template "新規テンプレート"
-      :template-settings/no-template "テンプレートなし"
-      :template-settings/template-fields "テンプレートのフィールド"
-      :template-settings/template-fields:hint "フィールドを使用すると、カードにデータを追加できます。フィールドの値はテンプレートで使用できます。"
-
-      :sort/sort            "ソート"
-      :sort/direction       "Ascending"
-      :sort/manual          "Clear sort (manual)"
-      :sort/retention-rate  "Retention rate"
-      :sort/alphabetical    "英数字"
-      :sort/created-at      "作成日順"
-      :sort/updated-at      "更新日順"
-      :sort/interval-length "Last interval"
-      :sort/due-date        "Due date"
-      :sort/random          "順序不同"
-
-      :deck/filter "フィルタ"
-      :deck-page/search-placeholder "このデックを検索する"
-      :preferences "環境設定"
-      :export/everything "すべてをエクスポート"
-
-      :deck-preferences "デックの設定"
-      :rename "名前を変更する"
-      :duplicate "複製する"
-      :deck-views/add-view "新規ビュー"
-
-      :preferences/title "環境設定"
-      :preferences/font-style "フォントスタイル"
-      :preferences/font-size "フォントサイズ"
-      :preferences/dark-mode "ダークモード"
-      :preferences/code-block-soft-wrap:title "コードブロックのソフトラップ"
-      :preferences/code-block-soft-wrap:desc "マークダウンのコードブロック内の行がウィンドウ幅を超えた場合、次の行に折り返します。"
-
-      :type-answer/correct "成功"
-
-      :review-settings/title (fn [& [parent]]
-                               (str (when parent (str (:name parent) "の"))
-                                    "復習の設定"))
-      :review-settings/desc:global "ここではカードをどのように復習するかについて設定を調整できます。これらの設定は全てのカードに影響しますが個々のデッキやノートの復習の設定によって上書きされます。"
-      :review-settings/desc:local "ここではカードをどのように復習するかについて設定を調整できます。"
-      :review-settings/remember-multiplier "記憶乗数"
-      :review-settings/remember-multiplier:tooltip "この設定値はカードを覚えた時の次回の復習日を遠くします。 // ヒント: 2であれば復習間隔を2倍にします。"
-      :review-settings/forgot-multiplier "忘却乗数"
-      :review-settings/forgot-multiplier:tooltip "この設定値はカードを忘れた時の次回の復習日を近くします。 // ヒント: 0.5であれば復習の間隔を半分にします。"
-      :review-settings/max-interval "最大間隔"
-      :review-settings/max-interval:days (fn [_] "日")
-      :review-settings/max-interval:tooltip "次回の復習までの最大間隔。 // 制限を設けたくなければ空欄にしてください。"
-      :review-settings/simulator:instructions "下のボタンを使うとカードへのアクションがどのように復習スケジュールへ影響するか確認できます。"
-      :review-settings/simulator:added "追加した"
-      :review-settings/simulator:days "日"
-      :review-settings/simulator:remember "覚えた"
-      :review-settings/simulator:forget "忘れた"
-      :review-settings/simulator:reset "リセット"
-
-      :review-settings/inherit-from-parent "Use setting from parent deck"
-      :review-settings/inherit-from-global "Use global setting"
-
-      :review-settings/retire-cards-title "最大間隔に達したカードを学習から外す"
-      :review-settings/retire-cards-desc "このオプションが有効な場合、カードの復習期間が最大間隔に達しているカードは復習に含まれなくなります。オプションが無効な場合は復習期間が最大間隔のまま引き続き復習に含まれます。"
-      :review-settings/retire-cards-yes "外す"
-      :review-settings/retire-cards-no "外さない"
-
-      :review-settings/multiplier-noise-title "復習期限にランダム性を追加"
-      :review-settings/multiplier-noise-desc "この設定が有効な場合、少しのランダム性を復習期限に追加します。これによって同じカードのグループが同じ日に現れることを防ぐことができます。上のシミュレーターを使ってランダム性がどのように動作しているか確認できます。"
-      :review-settings/multiplier-noise-yes "ランダム性を追加"
-      :review-settings/multiplier-noise-no "ランダム性を追加しない"
-
-      :review-settings/review-reverse-title "カードの順序を変更"
-      ; :review-settings/review-reverse-desc "For each card, also review the sides from \"back\" to \"front\". The last side will be shown first, followed by the second to last side, etc. Reverse reviews will have a separate review history from normal reviews."
-      :review-settings/review-reverse-desc "この設定では、面が複数あるカードは上から下へ、また下から上へというようにカード内の復習の順序を変更できます。カードはそれぞれの順序の復習履歴を保存します。"
-      :review-settings/review-reverse-yes "逆順にする"
-      :review-settings/review-reverse-no "逆順にしない"
-
-      :review-settings/new-cards-limit "1日のカード制限"
-      :review-settings/new-cards-limit-desc "ここでは1日に何枚のカードを勉強したいかを設定できます。枚数に制限を設けたくなければフォームを空欄にしてください。"
-      :review-settings/new-cards-limit-placeholder "制限なし"
-      :review-settings/new-cards-limit-cards-per-day "枚/日"
-
-      :review-settings/save "設定を保存"
-      :review-settings/cancel "キャンセル"
-
-      :icons/remembered "circle"
-      :icons/forgot "close"
-
-      :review/remember "覚えた"
-      :review/forgot   "忘れた"
-      :review/again    "再び"
+  :log-in-form/title "ログインする"
+  :log-in-form/desc "Mochi Proアカウントをお持ちの方、 下記からログインしてカードとデータを同期してください。"
+  :log-in/email:placeholder    "電子メール"
+  :log-in/password:placeholder "パスワード"
+  :log-in/submit     "ログイン"
+  :log-in/submitting "ログイン中…"
+  :log-in/forgot-password?     "パスワードをお忘れですか？"
+
+  :password-recovery/title "パスワード復旧"
+  :password-recovery/desc "パスワードの変更に使用できるトークンをメールでお送りします。"
+
+  :log-in/send-token "トークンを送る"
+  :log-in/sending-token "送る中…"
+
+
+  :history-tooltip "このカードの復習のログ"
+  :history "復習のログ"
+
+  :finished-reviews "今日は完成！"
+  :finished-learning "今日は完成！"
+
+  :delete "ゴミ箱に移動"
+  :delete-card "カードを消去する"
+  :delete-note "メモを消去する"
+  :delete-deck "デッキを消去する"
+  :export "エクスポートする"
+  :export-note "メモをエクスポートする"
+  :export-deck "デッキをエクスポートする"
+
+  :edit "編集"
+  :edit-note "メモを編集する"
+  :edit-card "カードを編集する"
+
+  ;; Import progress modal
+  :importing "インポート中…"
+  :exporting "エクスポート中…"
+  :import "インポート"
+
+  :default-deck-name "新規デッキ"
+  :selection-popover/add-card "新規カード" ;; Make card from selection
+  :save "保存"
+  :saving "保存中"
+  :cancel "キャンセル"
+  :new "新規"
+  :back "前に"
+
+  :card-content-placeholder "何かが覚えたい？"
+
+  :pages.deck.review-button/label       "カードを復習する"
+  :pages.deck.review-button/label:empty "今日のカードなし"
+
+  :pages.deck.learn-button/label       "新規カード"
+  :pages.deck.learn-button/label:empty "新規カードなし"
+
+  :pages.deck.quick-review-button/label   "総学習"
+
+  :no-due-cards "今日のカードなし"
+  :copy-link "ＩＤをコピー"
+
+  :move-card-to "移動…"
+
+  ;; Review History
+  :learned "覚えた"
+
+  :preview "プレビュー"
+
+  :are-you-sure-you-want-to-delete-deck
+    "このデッキを消去しますか？"
+  :yes-delete-deck "はい、消去する。"
+  :are-you-sure-you-want-to-delete-note
+    "このメモを消去しますか？"
+  :yes-delete-note "はい、消去する。"
+
+  :make-cards-from-note "Make cards from this note"
+  :make-cards-tooltip "このメーモからカードを自動的に作成する"
+
+  :cant-find-note "このメモを探すのはできません！"
+  :cant-find-deck "このデックを探すのはできません！"
+
+  :note-content-placeholder "何が書きたいですか？"
+
+  :add-to-reviews "復習に追加"
+
+  :add-card "新規カード"
+
+  ;; [スペース]キーを押して「覚えている」にマークするか、[F]キーを押して「忘れた」にマークしてください。
+  :review/last-side-hint
+  (fn [r f]
+    [:<> r "キーを押して「覚えている」にマークするか、" f "キーを押して「忘れた」にマークしてください。"])
+    ; [:<> "Press " r " to mark as remembered, or " f " as forgot."])
+
+  :learn/last-side-hint
+  (fn [r f] [:<> "Press " r " to add to reviews, or " f " review again."])
+
+  ;; Modal message
+  :imported-deck-already-exists "このデックはもうあります。"
+  :imported-note-already-exists "このメーモはもうあります。"
+  :imported-card-already-exists "このカードはもうあります。"
+
+  ;; Auto card generation from notes.
+  :no-new-cards-found "新規カードを見つけられません。"
+
+  :auto-update
+  {:auto-update.status/download-and-install "ダウンロードしてインストールする"
+   :auto-update.status/update-available "新しいバージョンが利用可能になりました！"
+   :auto-update.status/beta-available   [:<> "新しい" [:strong "ベータ版"] "が公開されました！"]
+   :auto-update.status/desc
+   (fn [update-version]
+     [:<>
+      "新着情報は"
+      [:a {:style {:font-style "italic"
+                   :text-decoration "underline"
+                   "&:hover" {:text-decoration "underline"}}
+           :href (if (includes? update-version "beta")
+                   "https://mochi.cards/beta-changelog/"
+                   "https://mochi.cards/changelog/")
+           :target "_blank"}
+       "こちらをご覧ください。"]])
+   :auto-update.status/backing-up       "バックアップ中……"
+   :auto-update.status/backing-up-desc  "ローカルデータのバックアップが実行されています。"
+   :auto-update.status/downloading      "ダウンロード中..."
+   :auto-update.status/downloaded       "ダウンロード完了"
+   :auto-update.status/downloaded-desc  "再起動してインストールしてください。"
+   :auto-update.status/failed           "更新に失敗しました"
+   :auto-update.status/failed:desc      (fn [msg]
+                                          [:<>
+                                           "更新の確認中にエラーが発生しました。 "
+                                           (when msg
+                                             [:<> [:br] msg])])}
+
+  :update-credit-card "クレジットカードを変える"
+  :updating-credit-card "クレジットカードを変える中"
+
+  :account-settings "アカウントの設定"
+
+  :all-synced "All synced"
+  :syncing "同期中…"
+  :reconnecting "Retrying..."
+  :sync-failed "Sync failed"
+
+  :archive-note "メモをアーカイブ"
+  :archive-deck "デックをアーカイブ"
+  :archived "アーカイブ"
+
+  :trash "ゴミ箱"
+
+  :breadcrumb/go-to-deck (fn [deck-name] (str deck-name "に行く"))
+
+  :chart/total-cards-learned      "累計学習カード数"
+  :chart/number-of-cards-learned  "学習カード数"
+  :chart/number-of-cards-reviewed "レビュー数"
+  :chart/retention-rate           "定着率"
+  :chart/review-time              "レビュー時間"
+  :chart/review-forecast          "レビュー予測"
+  :chart/intervals                "間隔"
+
+  :chart/previous-period          " 前期間"
+
+  :dashboard.stats/today "今日"
+  :dashboard.stats/all-time "全期間"
+  :dashboard.stats/average "平均"
+
+  :dashboard/overview "概要"
+
+  :dashboard.deck-selector/all-decks "すべてのデッキ"
+  :dashboard.deck-selector/placeholder "デッキを検索"
+
+  :dashboard.charts/period
+  (fn [period]
+    (let [[num unit] period]
+      (if (= num :all)
+        "全期間"
+        (str "過去" num (case unit
+                          :days "日"
+                          :weeks "週間"
+                          :months "か月"
+                          (name unit))))))
+
+  :dashboard.charts/segment
+  (fn [segment]
+    (case segment
+      :days "日別"
+      :weeks "週別"
+      :months "月別"
+      "不明"))
+
+  :pages.dashboard.duration/hour "時間"
+  :pages.dashboard.duration/minute "分"
+  :pages.dashboard.duration/second "秒"
+
+  :pages.dashboard.charts.deck-progress/title "デッキの進捗"
+  :pages.dashboard.charts.deck-progress.select-deck/placeholder "デッキを検索"
+  :pages.dashboard.charts.deck-progress/details "詳細"
+
+  :pages.dashboard.stats/cards-learned "学習カード数"
+  :pages.dashboard.stats/cards-learned-average "1日平均学習カード数"
+
+  :pages.dashboard.stats/retention-rate "定着率"
+
+  :pages.dashboard.stats/total-reviews "総レビュー数"
+  :pages.dashboard.stats/total-reviews-average "1日平均レビュー数"
+
+  :pages.dashboard.stats/review-time "レビュー時間"
+  :pages.dashboard.stats/review-time-average "1日平均時間"
+
+  :pages.dashboard.review-heatmap/title "レビュー活動"
+  :pages.dashboard.review-heatmap/summary
+  (fn [total-reviews total-days active-days]
+    [:<>
+     [:strong (intcomma total-reviews)]
+     " 回のレビュー • "
+     [:strong (intcomma total-days)]
+     " 日間 • "
+     [:strong (intcomma active-days)]
+     " アクティブ日"])
+
+  :pages.dashboard.review-heatmap/tooltip
+  (fn [num date]
+    (str date "に" num "回レビュー"))
+
+  :search-placeholder "このデッキの中に検索"
+
+  :interval-settings "復習の設定"
+
+  :template-settings "テンプレート"
+  :template-settings/title "テンプレート"
+  :template-settings/subtitle "新規カードを作ったら指定テンプレートが利用されます。またカードずつのテンプレートを指定することができます。テンプレートなしの場合は、カードで直接的になんでも書ける。"
+  :template-settings/new-template "新規テンプレート"
+  :template-settings/no-template "テンプレートなし"
+  :template-settings/template-fields "テンプレートのフィールド"
+  :template-settings/template-fields:hint "フィールドを使用すると、カードにデータを追加できます。フィールドの値はテンプレートで使用できます。"
+
+  :sort/sort            "ソート"
+  :sort/direction       "Ascending"
+  :sort/manual          "Clear sort (manual)"
+  :sort/retention-rate  "Retention rate"
+  :sort/alphabetical    "英数字"
+  :sort/created-at      "作成日順"
+  :sort/updated-at      "更新日順"
+  :sort/interval-length "Last interval"
+  :sort/due-date        "Due date"
+  :sort/random          "順序不同"
+
+  :deck/filter "フィルタ"
+  :deck-page/search-placeholder "このデックを検索する"
+  :preferences "環境設定"
+  :export/everything "すべてをエクスポート"
+
+  :deck-preferences "デックの設定"
+  :rename "名前を変更する"
+  :duplicate "複製する"
+  :deck-views/add-view "新規ビュー"
+
+  :preferences/title "環境設定"
+  :preferences/font-style "フォントスタイル"
+  :preferences/font-size "フォントサイズ"
+  :preferences/dark-mode "ダークモード"
+  :preferences/code-block-soft-wrap:title "コードブロックのソフトラップ"
+  :preferences/code-block-soft-wrap:desc "マークダウンのコードブロック内の行がウィンドウ幅を超えた場合、次の行に折り返します。"
+
+  :type-answer/correct "成功"
+
+  :review-settings/title (fn [& [parent]]
+                           (str (when parent (str (:name parent) "の"))
+                                "復習の設定"))
+  :review-settings/desc:global "ここではカードをどのように復習するかについて設定を調整できます。これらの設定は全てのカードに影響しますが個々のデッキやノートの復習の設定によって上書きされます。"
+  :review-settings/desc:local "ここではカードをどのように復習するかについて設定を調整できます。"
+  :review-settings/remember-multiplier "記憶乗数"
+  :review-settings/remember-multiplier:tooltip "この設定値はカードを覚えた時の次回の復習日を遠くします。 // ヒント: 2であれば復習間隔を2倍にします。"
+  :review-settings/forgot-multiplier "忘却乗数"
+  :review-settings/forgot-multiplier:tooltip "この設定値はカードを忘れた時の次回の復習日を近くします。 // ヒント: 0.5であれば復習の間隔を半分にします。"
+  :review-settings/max-interval "最大間隔"
+  :review-settings/max-interval:days (fn [_] "日")
+  :review-settings/max-interval:tooltip "次回の復習までの最大間隔。 // 制限を設けたくなければ空欄にしてください。"
+  :review-settings/simulator:instructions "下のボタンを使うとカードへのアクションがどのように復習スケジュールへ影響するか確認できます。"
+  :review-settings/simulator:added "追加した"
+  :review-settings/simulator:days "日"
+  :review-settings/simulator:remember "覚えた"
+  :review-settings/simulator:forget "忘れた"
+  :review-settings/simulator:reset "リセット"
+
+  :review-settings/inherit-from-parent "Use setting from parent deck"
+  :review-settings/inherit-from-global "Use global setting"
+
+  :review-settings/retire-cards-title "最大間隔に達したカードを学習から外す"
+  :review-settings/retire-cards-desc "このオプションが有効な場合、カードの復習期間が最大間隔に達しているカードは復習に含まれなくなります。オプションが無効な場合は復習期間が最大間隔のまま引き続き復習に含まれます。"
+  :review-settings/retire-cards-yes "外す"
+  :review-settings/retire-cards-no "外さない"
+
+  :review-settings/multiplier-noise-title "復習期限にランダム性を追加"
+  :review-settings/multiplier-noise-desc "この設定が有効な場合、少しのランダム性を復習期限に追加します。これによって同じカードのグループが同じ日に現れることを防ぐことができます。上のシミュレーターを使ってランダム性がどのように動作しているか確認できます。"
+  :review-settings/multiplier-noise-yes "ランダム性を追加"
+  :review-settings/multiplier-noise-no "ランダム性を追加しない"
+
+  :review-settings/review-reverse-title "カードの順序を変更"
+  ; :review-settings/review-reverse-desc "For each card, also review the sides from \"back\" to \"front\". The last side will be shown first, followed by the second to last side, etc. Reverse reviews will have a separate review history from normal reviews."
+  :review-settings/review-reverse-desc "この設定では、面が複数あるカードは上から下へ、また下から上へというようにカード内の復習の順序を変更できます。カードはそれぞれの順序の復習履歴を保存します。"
+  :review-settings/review-reverse-yes "逆順にする"
+  :review-settings/review-reverse-no "逆順にしない"
+
+  :review-settings/new-cards-limit "1日のカード制限"
+  :review-settings/new-cards-limit-desc "ここでは1日に何枚のカードを勉強したいかを設定できます。枚数に制限を設けたくなければフォームを空欄にしてください。"
+  :review-settings/new-cards-limit-placeholder "制限なし"
+  :review-settings/new-cards-limit-cards-per-day "枚/日"
+
+  :review-settings/save "設定を保存"
+  :review-settings/cancel "キャンセル"
+
+  :icons/remembered "circle"
+  :icons/forgot "close"
+
+  :review/remember "覚えた"
+  :review/forgot   "忘れた"
+  :review/again    "再び"
       
-      :alert.cannot-delete-template/title "テンプレートを消去できません。"
-      :alert.cannot-delete-template/cards-using "このテンプレートを使ったカードがあります。"
-      :alert.cannot-delete-template/delete-cards-first "これらのカードを削除するか、別のテンプレートに変更してください。"
+  :alert.cannot-delete-template/title "テンプレートを消去できません。"
+  :alert.cannot-delete-template/cards-using "このテンプレートを使ったカードがあります。"
+  :alert.cannot-delete-template/delete-cards-first "これらのカードを削除するか、別のテンプレートに変更してください。"
 
-      :pages.review.review-mode-selector/inbox "すべてのカード"
-      :pages.review/shuffle-button "シャッフルする"
-      :pages.review/shuffle-button:tooltip "カードの順番をランダムにする"}}
+  :pages.review.review-mode-selector/inbox "すべてのカード"
+  :pages.review/shuffle-button "シャッフルする"
+  :pages.review/shuffle-button:tooltip "カードの順番をランダムにする"}}
