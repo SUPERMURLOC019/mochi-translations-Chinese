@@ -21,7 +21,6 @@
 
   :review/remember "Remembered"
   :review/forgot   "Forgot"
-  :review/again    "Again"
 
   :chart/total-cards-learned      "Cards learned (cumulative)"
   :chart/number-of-cards-learned  "Cards learned"
@@ -97,6 +96,9 @@
                                 (if (>= due today)
                                   (str "This card will be due again on " due-str)
                                   (str "This card was due for review on " due-str)))
+  :card.tags.pinned/label "Pinned"
+  :card.tags.trashed/label "Trashed"
+  :card.tags.archived/label "Archived"
 
 
   :side-bar.account/logged-out "Logged out"
@@ -504,7 +506,7 @@
                                            "An error occured while checking for updates. "
                                            (when msg
                                              [:<> [:br] msg])])}
-      
+    
   ;; Account modal
   :account.settings/delete-account "Delete my account"
   :account.settings/deleting-account "Deleting account"
@@ -526,7 +528,7 @@
   :confirm-and-sync "Sync content"
   :upgrade          "Upgrade"
   :pro "Pro"
-      
+    
   :account-modal/are-you-sure-downgrade? "Are you sure you want to downgrade?"
   :account-modal/downgrade-subtext "Your plan will switch at the end of the billing period. You can still access your data offline with the free plan."
   :account-modal/confirm-downgrade "Yes, switch to the free plan"
@@ -535,14 +537,14 @@
   :account-modal/confirm-password "Confirm your password to continue."
   :account-modal/confirm-upgrade "Upgrade"
   :account-modal/confirm-upgrade:loading "Upgrading..."
-      
+    
   ;; Checkout modal
-      
+    
   ;; Attachments
   :attachments/too-large:title "Attachment too large"
   :attachments/too-large:subtext "Attachments larger than 5MB are currently not supported."
   :file-too-big "Attachments larger than 5MB are not supported."
-      
+    
   :ok "Ok"
 
   ;; Deck page
@@ -560,7 +562,7 @@
 
   ;; CouchDB connection
   :couchdb-auth-failed "Unable to connect to remote database. Please contact support@mochi.cards"
-      
+    
   :markdown/heading-1       "H1"
   :markdown/heading-2       "H2"
   :markdown/heading-3       "H3"
@@ -641,12 +643,12 @@
   :password-confirmation "Password confirmation"
 
   :account-settings "Account settings"
-      
+    
   :all-synced "All synced"
   :syncing "Syncing..."
   :reconnecting "Retrying..."
   :sync-failed "Sync failed"
-      
+    
   :import-desktop-only "Importing is currently only supported in the desktop and mobile apps."
 
   :review/review-cards "Review cards"
@@ -680,12 +682,6 @@
   :pages.review.done.rereview/button-tooltip "Press space to begin re-review."
 
   :pages.review.done/enjoy-your-day "Enjoy your day!"
-
-  :review/last-side-hint
-  (fn [r f] [:<> "Press " r " to mark as remembered, or " f " as forgot."])
-
-  :learn/last-side-hint
-  (fn [r f] [:<> "Press " r " to add to reviews, or " f " review again."])
 
   :pouchdb/unable-to-save "Unable to save document"
   :pouchdb/unknown-error [:<> "There was a problem while trying to save this document." [:br] "Please contact " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
@@ -732,7 +728,7 @@
   :deck-stats/total-num-of-cards
   (fn [card-count]
     (str "There are " card-count " " (pluralize card-count "card") " in this deck"))
-      
+    
   ;; TODO: add sign up / sign in / subscribe button
   ;; TODO: Change copy depending on state.
   :banners/web-free-account-warning
@@ -813,13 +809,14 @@
   :close "Close"
   :undo "Undo"
   :redo "Redo"
-      
+    
   :card-actions/review-reverse "Review reverse"
-      
-  :kbd/ctrl  "Ctrl"
+    
+  :kbd/ctrl  "⌃"
   :kbd/enter "⏎"
   :kbd/esc   "Esc"
-  :kbd/shift "Shift"
+  :kbd/shift "⇧"
+  :kbd/cmd   "⌘"
   :kbd/space "Space"
   :kbd/up    "↑"
   :kbd/down  "↓"
@@ -961,6 +958,7 @@
   :activate-account/submiting         "Activating..."
 
   :onboarding/go-back "← Go back"
+  :onboarding/skip "Skip →"
   :onboarding/welcome "Welcome to Mochi!"
   :onboarding/desc "Mochi is a tool for creating notes and flash cards to help you remember things."
   :onboarding/get-started "Get started"
@@ -993,14 +991,14 @@
   :breadcrumb/click-to-move "Click to move to a different deck | M"
 
   :speech-synthesis/generic-error "Something went wrong!"
-      
+    
   :mobile-header/preview-card "Preview card"
   :create-new-card/title "Create new card"
-      
+    
   :tooltip/attach-media "Attach media to this card"
   :app/update-available "A new version is available!"
   :app/mobile-update-available "Update available!"
-      
+    
   :alert/database-migration-required "Database migration required"
   :alert/download-1-11-3 "Please download and run version 1.11.3 before using this version."
 
@@ -1008,7 +1006,7 @@
   :deck-progress/learned "Learned"
   :deck-progress/total "Total"
   :deck-progress/archived "Archived"
-      
+    
   :filterer/no-templates "No templates"
 
   :actions/pin-card "Pin card"
@@ -1049,7 +1047,7 @@
   :errors/sqlite-migration:download-url:mac "https://download.mochi.cards/releases/Mochi-1.14.7.dmg"
   :errors/sqlite-migration:download-url:linux "https://download.mochi.cards/releases/Mochi-1.14.7.AppImage"
   :errors/sqlite-migration:download-url:windows "https://download.mochi.cards/releases/Mochi%20Setup%201.14.7.exe"
-      
+    
   :type-answer/correct "Answer"
   :icons/remembered "checkmark"
   :icons/forgot "close"
@@ -1063,7 +1061,7 @@
   [:<> "Do you want to use the card's current content as the value for the primary field?"
        [:br] [:br]
        "The primary field already contains the following value:"]
-      
+    
   :transcription/attachment-not-found-error "Input attachment not found."
   :transcription/attachment-too-large-error "Input attachment exceeds max file size of 1MB."
   :modal.settings/inherited-setting-label (fn [x] [:<> "Using default: " [:strong x]])
@@ -1106,6 +1104,13 @@
   :modal.settings.pages/app-update "App update"
   :modal.settings.pages/search "Search"
   :modal.settings.pages/experimental "Experimental"
+  :modal.settings.pages/about "About"
+  :modal.settings.pages.about/desc 
+  (fn [{:keys [year version]}]
+    [:<>
+     [:p (str "Mochi version " version)]
+     [:p (str "Copyright © 2019-" year " Mochi Cards, LLC")]
+     [:p "Some dictionary data is copyright © 2022 National Institute of Korean Language and is released under the Creative Commons Attribution-ShareAlike License."]])
 
   :settings.custom-translation.error.alert/text "Could not parse translation file"
   :settings.custom-translation.error.alert/subtext "Please check the EDN syntax."
@@ -1117,9 +1122,35 @@
   :preferences/css-theme:no-theme "No theme"
   :preferences/css-theme:new-theme "Add theme"
 
+  :pages.review.review-buttons.skip-back/tooltip "Skip to previous card // Review the current card later | ←"
+  :pages.review.review-buttons.skip-forward/tooltip "Skip to next card // Review the current card later | →"
+  :pages.review.review-buttons.forget/tooltip "Mark this card as forgot"
+  :pages.review.review-buttons.remember/tooltip "Mark this card as remembered"
+  :pages.review.review-buttons.undo/tooltip "Undo last review | :kbd/mod z"
+  :pages.review.review-buttons.pin/tooltip "Pin card // Pin this card to the sidebar | shift P"
+  :pages.review.review-buttons.archive/tooltip "Archive card // Remove from review schedule | A"
+  :pages.review.review-buttons.delete/tooltip "Delete card // Send to trash | D"
   :pages.review.review-mode-selector/inbox "All cards"
   :pages.review/shuffle-button "Shuffle"
-  :pages.review/shuffle-button:tooltip "Randomize the order of cards"}
+  :pages.review/shuffle-button:tooltip "Randomize the order of cards"
+  :pages.review/estimate-next-interval
+  (fn [{:keys [interval retire?]}]
+    (cond
+      (= interval 0) " // Next review later today"
+      retire? " // Reached max interval, retire card"
+      :else (str " // Next review in " interval " " (pluralize interval "day"))))
+  
+  :pages.review.card/next-side-hint
+  (fn [space down]
+    [:<> "Press" space "or" down "to reveal next side"])
+
+  :pages.review.card/cloze-hint
+  (fn [space]
+    [:<> "Press" space "to reveal hidden text"])
+
+  :pages.review.card/last-side-hint
+  (fn [space f]
+    [:<> "Press " space " if remembered, or " f " if forgot."])}
 
 
  :ja
@@ -1234,15 +1265,6 @@
   :add-to-reviews "復習に追加"
 
   :add-card "新規カード"
-
-  ;; [スペース]キーを押して「覚えている」にマークするか、[F]キーを押して「忘れた」にマークしてください。
-  :review/last-side-hint
-  (fn [r f]
-    [:<> r "キーを押して「覚えている」にマークするか、" f "キーを押して「忘れた」にマークしてください。"])
-    ; [:<> "Press " r " to mark as remembered, or " f " as forgot."])
-
-  :learn/last-side-hint
-  (fn [r f] [:<> "Press " r " to add to reviews, or " f " review again."])
 
   ;; Modal message
   :imported-deck-already-exists "このデックはもうあります。"
@@ -1464,11 +1486,37 @@
   :review/remember "覚えた"
   :review/forgot   "忘れた"
   :review/again    "再び"
-      
+    
   :alert.cannot-delete-template/title "テンプレートを消去できません。"
   :alert.cannot-delete-template/cards-using "このテンプレートを使ったカードがあります。"
   :alert.cannot-delete-template/delete-cards-first "これらのカードを削除するか、別のテンプレートに変更してください。"
 
+  :pages.review.review-buttons.skip-back/tooltip "前のカードへ // 現在のカードは後で確認する | ←"
+  :pages.review.review-buttons.skip-forward/tooltip "次のカードへ進む // 現在のカードは後で確認する | →"
+  :pages.review.review-buttons.forget/tooltip "このカードを「忘れた」としてマークする"
+  :pages.review.review-buttons.remember/tooltip "このカードを「覚えた」としてマークする"
+  :pages.review.review-buttons.undo/tooltip "前回の復習を元に戻す | :kbd/mod z"
+  :pages.review.review-buttons.pin/tooltip "カードをピン留め // このカードをサイドバーにピン留め | shift P"
+  :pages.review.review-buttons.archive/tooltip "カードをアーカイブ // 復習のスケジュールから削除 | A"
+  :pages.review.review-buttons.delete/tooltip "カードを削除 // ゴミ箱へ移動 | D"
   :pages.review.review-mode-selector/inbox "すべてのカード"
   :pages.review/shuffle-button "シャッフルする"
-  :pages.review/shuffle-button:tooltip "カードの順番をランダムにする"}}
+  :pages.review/shuffle-button:tooltip "カードの順番をランダムにする"
+  :pages.review/estimate-next-interval
+  (fn [{:keys [interval retire?]}]
+    (cond
+      (= interval 0) " // 次の復習は今日のうちに"
+      retire? " // 最大間隔に達したため、カードをリタイアする"
+      :else (str " // 次の復習は" interval "日後")))
+  
+  :pages.review.card/next-side-hint
+  (fn [space down]
+    [:<> space "キーまたは" down "キーを押すと、次の面が表示されます。"])
+
+  :pages.review.card/cloze-hint
+  (fn [space]
+    [:<> space "キーを押すと、隠されたテキストが表示されます。"])
+
+  :pages.review.card/last-side-hint
+  (fn [space f]
+    [:<> "覚えている場合は" space "キーを、忘れた場合は" f "キーを押してください。"])}}
