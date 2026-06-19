@@ -6,87 +6,93 @@
   :side-bar/templates     "Templates"
   :side-bar/pins          "Pinned"
   :side-bar/empty-deck    "No decks inside"
-  :side-bar/dashboard     "Dashboard"
+  :side-bar/dashboard "面板"
   :side-bar/undo          "Undo"
   :side-bar/redo          "Redo"
-  :side-bar/due-today     "Due today"
-  :side-bar/new-cards     "New cards"
-  :side-bar/settings      "Settings"
-  :side-bar/jump-to       "Search"
-  :side-bar/add-deck      "New Deck"
-  :side-bar/inbox         "Inbox"
+  :side-bar/due-today "今日的复习"
+  :side-bar/new-cards "新建卡片"
+  :side-bar/settings "设置"
+  :side-bar/jump-to "搜索"
+  :side-bar/add-deck "新建牌组"
+  :side-bar/inbox     "收件箱"
 
   :embedded-card/remember "Remembered"
   :embedded-card/forgot   "Forgot"
 
-  :review/remember "Remembered"
-  :review/forgot   "Forgot"
+  :review/remember "记住"
+  :review/forgot   "忘记"
 
-  :chart/total-cards-learned      "Cards learned (cumulative)"
-  :chart/number-of-cards-learned  "Cards learned"
-  :chart/number-of-cards-reviewed "Reviews"
-  :chart/retention-rate           "Retention rate"
-  :chart/review-time              "Review time"
-  :chart/review-forecast          "Review forecast"
-  :chart/intervals                "Intervals"
+  :chart/total-cards-learned      "累积学习卡片数"
+  :chart/number-of-cards-learned  "学习卡片数"
+  :chart/number-of-cards-reviewed "复习卡片数"
+  :chart/retention-rate           "记忆保持率"
+  :chart/review-time              "复习时间"
+  :chart/review-forecast          "复习预测"
+  :chart/intervals                "间隔"
 
-  :chart/previous-period          " previous period"
+  :chart/previous-period          " 上一期"
 
-  :dashboard.stats/today "Today"
-  :dashboard.stats/all-time "All time"
-  :dashboard.stats/average "Average"
+  :dashboard.stats/today "今日"
+  :dashboard.stats/all-time "全部"
+  :dashboard.stats/average "平均"
 
-  :dashboard/overview "Overview"
+  :dashboard/overview "概要"
 
-  :dashboard.deck-selector/all-decks "All decks"
-  :dashboard.deck-selector/placeholder "Search decks"
+  :dashboard.deck-selector/all-decks "全部牌组"
+  :dashboard.deck-selector/placeholder "搜索牌组"
+    
 
   :dashboard.charts/period
   (fn [period]
     (let [[num unit] period]
       (if (= num :all)
-        "All time"
-        (str "Last " num " " (name unit)))))
+        "全部"
+        (str "历史" num (case unit
+                          :days "日"
+                          :weeks "周"
+                          :months "月"
+                          (name unit))))))
 
   :dashboard.charts/segment
   (fn [segment]
     (case segment
-      :days "Daily"
-      :weeks "Weekly"
-      :months "Monthly"
-      "Unknown"))
+      :days "日"
+      :weeks "周"
+      :months "月"
+      "未知"))
 
-  :pages.dashboard.duration/hour (fn [num] (pluralize num "hr"))
-  :pages.dashboard.duration/minute (fn [num] (pluralize num "min"))
-  :pages.dashboard.duration/second (fn [num] (pluralize num "sec"))
+  :pages.dashboard.duration/hour "小时"
+  :pages.dashboard.duration/minute "分"
+  :pages.dashboard.duration/second "秒"
 
-  :pages.dashboard.charts.deck-progress/title "Deck progress"
-  :pages.dashboard.charts.deck-progress.select-deck/placeholder "Search decks"
-  :pages.dashboard.charts.deck-progress/details "Details"
+  :pages.dashboard.charts.deck-progress/title "牌组进度"
+  :pages.dashboard.charts.deck-progress.select-deck/placeholder "搜索牌组"
+  :pages.dashboard.charts.deck-progress/details "详情"
 
-  :pages.dashboard.stats/cards-learned "Cards Learned"
-  :pages.dashboard.stats/cards-learned-average "Avg Cards/Day"
+  :pages.dashboard.stats/cards-learned "学习卡片数"
+  :pages.dashboard.stats/cards-learned-average "平均每日学习卡片数"
 
-  :pages.dashboard.stats/retention-rate "Retention Rate"
+  :pages.dashboard.stats/retention-rate "记忆保持率"
 
-  :pages.dashboard.stats/total-reviews "Total Reviews"
-  :pages.dashboard.stats/total-reviews-average "Avg Reviews/Day"
+  :pages.dashboard.stats/total-reviews "总复习数"
+  :pages.dashboard.stats/total-reviews-average "每日平均复习数"
 
-  :pages.dashboard.stats/review-time "Review time"
-  :pages.dashboard.stats/review-time-average "Avg Time/Day"
+  :pages.dashboard.stats/review-time "复习时间"
+  :pages.dashboard.stats/review-time-average "每日平均时间"
 
-  :pages.dashboard.review-heatmap/title "Review Activity"
+  :pages.dashboard.review-heatmap/title "复习活动"
   :pages.dashboard.review-heatmap/summary
   (fn [total-reviews total-days active-days]
     [:<>
-     [:strong (intcomma total-reviews)]
-     " reviews over "
-     [:strong (intcomma total-days)]
-     " days • "
-     [:strong (intcomma active-days)]
-     " active days"])
+    [:strong (intcomma total-reviews)]
+    " 总复习 • "
+    [:strong (intcomma total-days)]
+    " 全天 • "
+    [:strong (intcomma active-days)]
+    " 活跃天数"])
   :pages.dashboard.review-heatmap/tooltip
-  (fn [num date] (str num " " (pluralize num "review") " on " date))
+  (fn [num date]
+    (str date "有" num "条评论"))
 
 
 
@@ -101,15 +107,15 @@
   :card.tags.archived/label "Archived"
 
 
-  :side-bar.account/logged-out "Logged out"
-  :side-bar.account/log-in   "Log in"
-  :side-bar.account/log-out  "Log out"
-  :side-bar.account/sign-up  "Sign up"
-  :side-bar.account/offline "Offline"
+  :side-bar.account/logged-out "访客"
+  :side-bar.account/log-in   "登录"
+  :side-bar.account/log-out   "登出"
+  :side-bar.account/sign-up  "注册"
+  :side-bar.account/offline "离线"
 
-  :sign-up/heading           "Sign up"
-  :sign-up/submit            "Sign up"
-  :sign-up/submit-loading    "Signing up..."
+  :sign-up/heading           "注册"
+  :sign-up/submit            "注册"
+  :sign-up/submit-loading    "注册中…"
   :sign-up/cancel            "Sign up later"
 
   :sign-up/name:placeholder "Name"
@@ -119,15 +125,15 @@
 
   :sign-up.verify/heading "Verify"
 
-  :sign-up.checkout/heading "Checkout"
-  :interval-settings "Review Settings"
-  :template-settings "Template"
-  :template-settings/title "Templates"
-  :template-settings/subtitle "When you create a new card, it will use the selected template. The template can also be set on cards individually. If no template is set, you can write free-form markdown in the card."
-  :template-settings/new-template "New template"
-  :template-settings/no-template "No template"
-  :template-settings/template-fields "Template fields"
-  :template-settings/template-fields:hint "Fields let you add structured data to your cards. You can use these fields in the template."
+  :sign-up.checkout/heading "检查"
+  :interval-settings "复习设置"
+  :template-settings "模板设置"
+  :template-settings/title "模板设置 "
+  :template-settings/subtitle "当你创建新卡片时，指定的模板将被使用。你也可以为每张卡片指定一个模板。如果没有模板，你可以直接在卡片上写任何东西。"
+  :template-settings/new-template "新建模板"
+  :template-settings/no-template "没有模板"
+  :template-settings/template-fields "模板字段"
+  :template-settings/template-fields:hint "使用字段可以在卡片上添加数据。字段的值可以在模板中使用。"
 
   :template-settings/attachments "Attachments"
   :template-settings/attachments:hint "You can attach files like images and audio to your templates for use in every card."
@@ -140,7 +146,8 @@
   :field/confirm-delete "Really delete this field?"
   :field/delete-subtext "This field will also be removed from any cards that are using it."
   :field/yes-delete "Delete field"
-  :field/primary-description "This is the card's primary field and cannot be removed.\nIt is used to represent the card in other parts of the UI."
+  :field/primary-description "This is the card's primary field and cannot be removed.
+It is used to represent the card in other parts of the UI."
 
   :fields.dictionary/hide-term "Hide term"
 
@@ -152,9 +159,9 @@
   :confirm-reset-templates/description "This will update all cards in the deck to use the selected template. Cards that previously used a different template will keep their field data, but you won't be able to see or edit them."
   :confirm-reset-templates/confirm "Change templates"
 
-  :preferences "Preferences"
+  :preferences "偏好"
 
-  :deck-preferences "Deck settings"
+  :deck-preferences "牌组设置"
 
   :reset-review-history "Reset Review History"
   :confirm-reset-review-history/title "Reset review history?"
@@ -204,39 +211,40 @@
   :review-reverse-enabled-for-deck "Reverse reviews are enabled for this deck."
 
   ;; Card View
-  :add-card "New Card"
-  :history-tooltip "The review history of this card"
-  :history "Review History"
+  :add-card "新建卡片"
+
+  ;; Modal message
+  :history-tooltip "此卡片的复习记录"
+  :history "复习记录"
   :reverse-history "Reverse History"
 
   :public "Public"
   :published "Published"
-  :archived "Archived"
+  :archived "已归档"
   :archive-card "Archive Card"
-  :archive-deck "Archive Deck"
-  :archive-note "Archive Note"
+  :archive-deck "牌组归档"
+  :archive-note "笔记归档"
   :deck-archive-tooltip "Cards in this deck will not show up for review."
 
   :archive-deck-tooltip "When a deck is archived, none of its cards will show up for review."
   :archive-note-tooltip "When a note is archived, none of its cards will show up for review."
 
   ;; Card modal view
-  :move-card-to "Move card to..."
+  :move-card-to "移动到…"
 
-
-  ;; Review buttons
-  :pages.deck.review-button/label       "Review"
-  :pages.deck.review-button/label:empty "Review"
+  ;; Review History
+  :pages.deck.review-button/label       "复习卡片"
+  :pages.deck.review-button/label:empty "今日没有卡片"
   :pages.deck.review-button/tooltip     
   (fn [card-count]
     (str "Review " card-count " " (pluralize card-count "card") " due today"))
   :pages.deck.review-button/tooltip:empty "No cards due today // Learning new cards will schedule them for review later."
 
-  :pages.deck.learn-button/label       "New cards"
-  :pages.deck.learn-button/label:empty "New cards"
+  :pages.deck.learn-button/label       "新建卡片"
+  :pages.deck.learn-button/label:empty "今日没有新卡片"
   :pages.deck.learn-button/tooltip     "Learn new cards and add them to the review schedule"
 
-  :pages.deck.quick-review-button/label   "Cram"
+  :pages.deck.quick-review-button/label   "总学习"
   :pages.deck.quick-review-button/tooltip "Quick review filtered / searched cards // Does not affect review scheduling"
   :pages.deck.save-deck/label "Save Deck"
   :pages.deck.save-deck/label:loading "Cloning deck"
@@ -261,24 +269,18 @@
   :save-deck-prompt/yes     "Save deck"
   :save-deck-prompt/no      "Not now"
 
-  :deck/filter "Filter"
-
-  ;; Review History
-  :learned "Learned"
-
-  ;; Add XYZ menu options
+  :deck/filter "过滤"
+  :learned "已学会"
   :new-blank-deck "New Empty Deck"
   :new-blank-note "New Empty Note"
   :new-deck-from-template "New Deck from Template"
   :import-deck "Import Deck"
-  :import "Import"
+  :import "导入"
   :browse-online "Browse from online database"
 
   ;; Default names when creating new records
   :default-note-name "Untitled note"
-  :default-deck-name "New Deck"
-
-  ;; Alert when closing modal while still editing.
+  :default-deck-name "新建牌组"
   :alert.unsaved-changes/title "Discard changes?"
   :alert.unsaved-changes/subtext "You have unsaved changes. Are you sure you want to discard them?"
   :alert.unsaved-changes/subtext:new-card "You have unsaved changes. Do you want to discard them before creating a new card?"
@@ -286,28 +288,28 @@
   :alert.unsaved-changes/confirm:new-card "Discard changes"
   :alert.unsaved-changes/cancel "Keep editing"
 
-  :alert.cannot-delete-template/title "Cannot delete template"
-  :alert.cannot-delete-template/cards-using "There are cards using this template."
-  :alert.cannot-delete-template/delete-cards-first "Either delete these cards first, or switch them to a different template."
+  :alert.cannot-delete-template/title "无法删除模板。"
+  :alert.cannot-delete-template/cards-using "有卡片正在使用此模板。"
+  :alert.cannot-delete-template/delete-cards-first "请先删除这些卡片或将它们更改为其他模板。"
 
   :do-you-want-to-save-first? "Discard changes?"
   :do-you-want-to-save-first/subtext "You have unsaved changes. Are you sure you want to discard them?"
-  :save "Save"
+  :save "保存"
   :save-and-close "Save & Close"
   :save-and-new "Save & Add"
   :account.general-info/save "Update account"
   :account.general-info/saving "Updating account"
   :done "Done"
-  :saving "Saving"
-  :cancel "Cancel"
-  :delete "Move to Trash"
-  :rename "Rename"
+  :saving "保存中"
+  :cancel "取消"
+  :delete "移至回收站"
+  :rename "重命名"
   :move-to "Move to"
   :add-nested-deck "Add subdeck"
-  :delete-card "Delete Card"
-  :delete-note "Delete Note"
-  :delete-deck "Delete Deck"
-  :export-note "Export Note"
+  :delete-card "删除卡片"
+  :delete-note "删除笔记"
+  :delete-deck "删除牌组"
+  :export-note "导出笔记"
 
   :multi-card-actions/button-label "Actions"
   :multi-card-actions/move "Move to"
@@ -361,8 +363,8 @@
     (str "Yes, reset review histories for " (intcomma card-count) " " (pluralize card-count "card")))
 
   :note.legacy/make-cards-from-note "Make cards from this note"
-  :export-deck "Export Deck"
-  :export "Export"
+  :export-deck "导出牌组"
+  :export "导出"
   :export/deck-name (fn [deck-name] (str "Export " deck-name))
   :export/submit "Export"
   :export/submitting "Exporting..."
@@ -375,7 +377,7 @@
   :export/ids-in-file-names "Include IDs in file names"
   :export/include-subdecks "Include subdecks"
   :export/csv-render-cards "Prerender cards"
-  :export/everything "Export everything"
+  :export/everything "导出全部"
   :export/error-title "Unable to export"
   :export/error-msg [:<> "There was a problem while trying to export." [:br] "Please contact " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
 
@@ -385,29 +387,31 @@
   :export-progress.mochi/subtitle:generating-archive "Archiving data"
 
   :publish "Publish"
-  :edit "Edit"
-  :edit-note "Edit Note"
+  :edit "编辑"
+  :edit-note "编辑笔记"
   :duplicate-note "Duplicate Note"
-  :duplicate "Duplicate"
-  :edit-card "Edit Card"
+  :duplicate "复制"
+  :edit-card "编辑卡片"
 
-  :cant-find-note "Can't find this note!"
-  :cant-find-deck "Can't find deck."
+  ;; Import progress modal
+
+  :cant-find-note "无法找到此笔记！"
+  :cant-find-deck "无法找到此牌组！"
 
   :cards-to-learn "Learned today"
 
   :make-cards-from-note "Make cards from this note"
-  :make-cards-tooltip "Automatically create cards from the contents of this note"
-  :copy-link "Copy ID"
+  :make-cards-tooltip "自动从此笔记创建卡片"
+  :copy-link "复制ID"
   :copy-deck-id "Copy Deck ID"
 
   :confirm-delete-deck/title "Delete this deck?"
   :confirm-delete-deck/description "This action cannot be undone."
-  :yes-delete-deck "Delete deck"
+  :yes-delete-deck "是的，删除。"
 
   :confirm-delete-note/title "Delete this note?"
   :confirm-delete-note/description "This action cannot be undone."
-  :yes-delete-note "Delete note"
+  :yes-delete-note "是的，删除。"
 
   :confirm-delete-card/title "Delete this card?"
   :confirm-delete-card/description "This action cannot be undone."
@@ -418,28 +422,29 @@
   :forget "Forget"
   :remember "Remember"
 
-  :finished-reviews "You've finished all of your reviews!"
-  :finished-learning "No more cards to learn!"
+  :finished-reviews "今日已完成"
+  :finished-learning "今日已完成"
 
-  :new "New"
+  :new "新建"
   :beta "Beta"
-  :back "Back"
-  :card-content-placeholder "What do you want to remember?"
-  :note-content-placeholder "What's on your mind?"
-  :deck-page/search-placeholder "Search Cards"
+  :back "返回"
+  
+  :card-content-placeholder "有什么想记住的？"
+  :note-content-placeholder "有什么想记住的？"
+  :deck-page/search-placeholder "搜索此牌组"
   :next-side "Next Side"
   :reveal-next-side "Show next side"
   :view-note-as-page "View as page"
-  :preview "Preview"
+  :preview "预览"
   :notes "Notes"
   :decks "Decks"
 
-  :add-to-reviews "Add to reviews"
+  :add-to-reviews "添加到复习"
+  :imported-deck-already-exists "此牌组已存在。"
+  :imported-note-already-exists "此笔记已存在。"
+  :imported-card-already-exists "此卡片已存在。"
 
-  ;; Modal message
-  :imported-deck-already-exists "A deck with this ID already exists."
-  :imported-note-already-exists "A note with this ID already exists."
-  :imported-card-already-exists "A card with this ID already exists."
+  ;; Auto card generation from notes.
 
   :import/import-failed "Unable to import collection"
   :import/data-edn-not-found "Could not find data.edn or data.json file."
@@ -463,7 +468,7 @@
   :unable-to-read-md-file "Unable to read .md file."
 
   ;; Import progress modal
-  :importing "Importing..."
+  :importing "导入中…"
   :emptying-trash "Emptying trash..."
   :importing/extracting-archive "Extracting archive"
   :importing/reading-data "Reading data"
@@ -477,37 +482,37 @@
   :import-modal/markdown-options "Markdown Import Options"
   :import-modal/select-format "Select a format from the left."
 
-  :exporting "Exporting..."
+  :exporting "导出中…"
 
   :auto-update/check-for-updates "Check for updates"
   :auto-update
-  {:auto-update.status/download-and-install "Download and install"
-   :auto-update.status/update-available "A new version is available!"
-   :auto-update.status/beta-available   [:<> "A new " [:strong "beta"] " version is available!"]
+  {:auto-update.status/download-and-install "下载并安装"
+   :auto-update.status/update-available "新版本可用！"
+   :auto-update.status/beta-available   [:<> "新的" [:strong "Beta版"] "已发布！"]
    :auto-update.status/desc
    (fn [update-version]
      [:<>
-      [:a {:style {:font-style "italic"
+      "新信息详见"
+      [:a {:style {:font-style "italic"}
                    :text-decoration "underline"
                    "&:hover" {:text-decoration "underline"}}
            :href (if (includes? update-version "beta")
                    "https://mochi.cards/beta-changelog/"
                    "https://mochi.cards/changelog/")
-           :target "_blank"}
-       "Click here"] " to see what's new."])
-   :auto-update.status/backing-up       "Backing up..."
-   :auto-update.status/backing-up-desc  "Your local data is being backed up."
-   :auto-update.status/downloading      "Downloading..."
-   :auto-update.status/downloaded       "Download complete"
-   :auto-update.status/downloaded-desc  "Restart to install update."
-   :auto-update.status/failed           "Update failed"
+           :target "_blank"
+       "请看这里"]])
+   :auto-update.status/backing-up       "备份中……"
+   :auto-update.status/backing-up-desc  "本地数据备份正在进行中。"
+   :auto-update.status/downloading      "下载中..."
+   :auto-update.status/downloaded       "下载完成"
+   :auto-update.status/downloaded-desc  "请重启并安装更新。"
+   :auto-update.status/failed           "更新失败"
    :auto-update.status/failed:desc      (fn [msg]
                                           [:<>
-                                           "An error occured while checking for updates. "
+                                           "检查更新时发生错误。 "
                                            (when msg
                                              [:<> [:br] msg])])}
-    
-  ;; Account modal
+  
   :account.settings/delete-account "Delete my account"
   :account.settings/deleting-account "Deleting account"
   :account.settings/are-you-sure-delete-account "Are you really sure?"
@@ -633,8 +638,9 @@
   :downgrade "Downgrade"
   :downgrading "Downgrading..."
 
-  :update-credit-card "Update credit card"
-  :updating-credit-card "Updating credit card"
+  :update-credit-card "更新信用卡"
+  :updating-credit-card "更新信用卡中"
+   
 
   :update-password "Update password"
   :updating-password "Updating password"
@@ -642,13 +648,12 @@
   :password              "Password"
   :password-confirmation "Password confirmation"
 
-  :account-settings "Account settings"
-    
-  :all-synced "All synced"
-  :syncing "Syncing..."
-  :reconnecting "Retrying..."
-  :sync-failed "Sync failed"
-    
+  :account-settings "账户设置"
+ 
+  :all-synced "全部同步"
+  :syncing "同步中…"
+  :reconnecting "重试中..."
+  :sync-failed "同步失败"
   :import-desktop-only "Importing is currently only supported in the desktop and mobile apps."
 
   :review/review-cards "Review cards"
@@ -701,7 +706,7 @@
   :loading/reading-local-db "Loading cards..."
   :loading/loading-data     "Indexing..."
 
-  :trash "Trash"
+  :trash "回收站"
   :trash/is-empty "The trash is empty."
   :trash/empty "Empty trash"
   :trash/empty-trash-tooltip "Permanently delete all items in the trash. // This action cannot be undone."
@@ -823,14 +828,14 @@
 
   :deck-view-switcher/show-card-title "Show card title"
   :preferences/notebook-show-context "Show Notebook card context"
-  :deck-views/add-view "Add view"
+  :deck-views/add-view "新建视图"
 
-  :preferences/title "Preferences"
+  :preferences/title "偏好设置"
   :preferences/deck-title "Deck Preferences"
 
-  :preferences/font-style "Font style"
-  :preferences/font-size "Font size"
-  :preferences/dark-mode "Dark mode"
+  :preferences/font-style "字体样式"
+  :preferences/font-size "字体大小"
+  :preferences/dark-mode "深色模式"
 
   :preferences/reduce-animations:title "Reduce animations"
   :preferences/reduce-animations:desc "Turning this on will disabled the animations that play during a review when marking a card as remembered or forgot."
@@ -856,8 +861,8 @@
   :preferences/char-limit:title "Card character limit"
   :preferences/char-limit:desc "This option tracks and displays total characters used when creating a card. This can help when creating focused, atomic cards."
 
-  :preferences/code-block-soft-wrap:title "Code block soft wrap"
-  :preferences/code-block-soft-wrap:desc "Wrap lines within markdown codeblocks."
+  :preferences/code-block-soft-wrap:title "代码块软换行"
+  :preferences/code-block-soft-wrap:desc "当 Markdown 代码块中的行超出窗口宽度时，会在下一行进行换行。"
 
   :preferences/type-hidden-text:title "Type hidden text"
   :preferences/type-hidden-text:desc "Hidden text (cloze deletions) become typable input boxes."
@@ -878,47 +883,47 @@
   :preferences/search-languages:desc "Select the languages you want to use when searching. More languages require more memory, and some language combinations are generally incompatible (e.g. Japanese and Chinese)."
 
   :review-settings/title (fn [& [parent]]
-                           (str "Review settings"
-                                (when parent (str " for " (:name parent)))))
-  :review-settings/desc:global "Here you can adjust the settings that will affect when and how cards will be reviewed. These settings will affect all cards, but can be overridden in the review settings for individual decks or notes."
-  :review-settings/desc:local "Here you can adjust the settings that will affect when and how cards will be reviewed."
-  :review-settings/remember-multiplier "Remember multiplier"
-  :review-settings/remember-multiplier:tooltip "The next review date will increase by this much when you remember a card. // Hint: A value of 2 will double the interval."
-  :review-settings/forgot-multiplier "Forgot multiplier"
-  :review-settings/forgot-multiplier:tooltip "The next review date will decrease by this much when you forget a card. // Hint: A value of 0.5 will halve the interval."
-  :review-settings/max-interval "Max interval"
-  :review-settings/max-interval:days (fn [days] (pluralize days "day"))
-  :review-settings/max-interval:tooltip "The maximum interval between reviews. // Leave blank for no limit."
-  :review-settings/simulator:instructions "Use the buttons below to see how your responses affect the review schedule for a card."
-  :review-settings/simulator:added "Added"
-  :review-settings/simulator:days " days"
-  :review-settings/simulator:remember "Remember"
-  :review-settings/simulator:forget "Forget"
-  :review-settings/simulator:reset "Reset"
+                          (str (when parent (str (:name parent) "の"))
+                                "复习设置"))
+  :review-settings/desc:global "这里可以调整如何复习卡片。这些设置会影响所有卡片，但可以被各个牌组或笔记的复习设置覆盖。"
+  :review-settings/desc:local "这里可以调整如何复习卡片。"
+  :review-settings/remember-multiplier "记忆倍率"
+  :review-settings/remember-multiplier:tooltip "这个设置值会延长卡片被记住后的下次复习日期。 // 提示: 如果是2，则将复习间隔翻倍。"
+  :review-settings/forgot-multiplier "忘却倍率"
+  :review-settings/forgot-multiplier:tooltip "这个设置值会缩短卡片被忘记后的下次复习日期。 // 提示: 如果是0.5，则将复习间隔减半。"
+  :review-settings/max-interval "最大间隔"
+  :review-settings/max-interval:days (fn [_] "日")
+  :review-settings/max-interval:tooltip "下次复习的最大间隔。 // 如果不想设置限制，请留空。"
+  :review-settings/simulator:instructions "使用下面的按钮可以查看卡片操作如何影响复习计划。"
+  :review-settings/simulator:added "添加数"
+  :review-settings/simulator:days "日"
+  :review-settings/simulator:remember "记住数"
+  :review-settings/simulator:forget "忘记数"
+  :review-settings/simulator:reset "重置"
 
-  :review-settings/inherit-from-parent "Use setting from parent deck"
-  :review-settings/inherit-from-global "Use global setting"
-  :review-settings/retire-cards-title "Retire cards"
-  :review-settings/retire-cards-desc "When this is enabled, a card that is remembered at or above the max interval will no longer be scheduled for review."
-  :review-settings/retire-cards-yes "Retire"
-  :review-settings/retire-cards-no "Don't retire"
-  :review-settings/multiplier-noise-title "Apply fuzzing"
-  :review-settings/multiplier-noise-desc "When enabled, this adds some random variation to due dates to prevent cards from sticking together."
-  :review-settings/multiplier-noise-yes "Add randomness"
-  :review-settings/multiplier-noise-no "Don't add randomness"
+  :review-settings/inherit-from-parent "使用父牌组的设置"
+  :review-settings/inherit-from-global "使用全局设置"
+  :review-settings/retire-cards-title "将间隔最长的卡片从学习中移除"
+  :review-settings/retire-cards-desc "启用此选项后，复习周期达到最大间隔的卡片将不再包含在复习中。禁用此选项后，这些卡片将继续包含在复习中，复习周期保持在最大间隔。"
+  :review-settings/retire-cards-yes "移除"
+  :review-settings/retire-cards-no "不移除"
+  :review-settings/multiplier-noise-title "复习日期添加随机性"
+  :review-settings/multiplier-noise-desc " 启用此设置将在复习日期中添加一些随机性。这可以防止同一组卡片出现在同一天。您可以使用上面的模拟器查看随机性的工作原理。"
+  :review-settings/multiplier-noise-yes "添加随机性"
+  :review-settings/multiplier-noise-no "不添加随机性"
 
-  :review-settings/review-reverse-title "Review cards in reverse"
-  ; :review-settings/review-reverse-desc "For each card, also review the sides from \"back\" to \"front\". The last side will be shown first, followed by the second to last side, etc. Reverse reviews will have a separate review history from normal reviews."
-  :review-settings/review-reverse-desc "When this setting is on, cards with more than one side will be reviewed from top to bottom, as well as bottom to top. The card will maintain two separate review histories, one for each direction."
-  :review-settings/review-reverse-yes "Review reverse"
-  :review-settings/review-reverse-no "Don't review reverse"
+  :review-settings/review-reverse-title "改变卡片的顺序"
+  ; :review-settings/review-reverse-desc "对于每张卡片，还需从【背面】到【正面】进行复习。最后一面将首先显示，然后是倒数第二面，依此类推。反向复习的历史记录将与正常复习分开。"
+  :review-settings/review-reverse-desc "对于每张卡片，您可以选择从【背面】到【正面】进行复习。最后一面将首先显示，然后是倒数第二面，依此类推。反向复习的历史记录将与正常复习分开。"
+  :review-settings/review-reverse-yes "逆序复习"
+  :review-settings/review-reverse-no "顺序复习"
 
-  :review-settings/new-cards-limit "Limit new cards per day"
-  :review-settings/new-cards-limit-desc "Here you can choose how many new cards you want to learn each day. You can also leave this blank if you don't want to limit the number of new cards."
-  :review-settings/new-cards-limit-placeholder "No limit"
-  :review-settings/new-cards-limit-cards-per-day "cards/day"
-  :review-settings/save "Save Settings"
-  :review-settings/cancel "Cancel"
+  :review-settings/new-cards-limit "每日卡片限制"
+  :review-settings/new-cards-limit-desc "这里可以设置每天想要学习的卡片数量。如果不想设置限制，请将表单留空。"
+  :review-settings/new-cards-limit-placeholder "无限制"
+  :review-settings/new-cards-limit-cards-per-day "张/日"
+  :review-settings/save "保存设置"
+  :review-settings/cancel "取消"
 
   :account-modal/title "Account Settings"
   :account-modal/update-credit-card "Update credit card"
@@ -930,24 +935,24 @@
   :serif "Serif"
   :monospace "Monospace"
 
-  :sort/sort           "Sort"
-  :sort/direction      "Ascending"
-  :sort/manual         "Clear sort (manual)"
-  :sort/retention-rate "Retention rate"
-  :sort/alphabetical   "Alphanumeric"
-  :sort/created-at     "Date created"
-  :sort/updated-at     "Last updated"
-  :sort/interval-length "Last interval"
+  :sort/sort            "排序"
+  :sort/direction       "升序"
+  :sort/manual          "清除排序（手动）"
+  :sort/retention-rate  "记忆保持率"
+  :sort/alphabetical    "字母数字"
+  :sort/created-at      "创建日期"
+  :sort/updated-at      "更新日期"
+  :sort/interval-length "上次间隔"
   :sort/last-review-date "Last reviewed"
-  :sort/due-date        "Due date"
-  :sort/random          "Random"
+  :sort/due-date        "终止日"
+  :sort/random          "顺序不同"
   :sort/referenced-count "Reference count"
 
   :selection-popover/furigana  "Add furigana"
   :selection-popover/cloze     "Hide text"
   :selection-popover/add-side  "Add Side"
   :selection-popover/split-card  "Split card"
-  :selection-popover/add-card  "New card"
+  :selection-popover/add-card "选择/添加牌组" ;; Make card from selection
   :selection-popover/translate "Translate"
   :selection-popover/add-to-card "Add to card"
 
@@ -957,28 +962,29 @@
   :activate-account/submit            "Activate account"
   :activate-account/submiting         "Activating..."
 
-  :onboarding/go-back "← Go back"
+  :onboarding/go-back "← 返回"
   :onboarding/skip "Skip →"
-  :onboarding/welcome "Welcome to Mochi!"
-  :onboarding/desc "Mochi is a tool for creating notes and flash cards to help you remember things."
-  :onboarding/get-started "Get started"
-  :onboarding/already-have-an-account? "Already have an account?"
-  :onboarding/log-in "Log in"
+  :onboarding/welcome "欢迎来到Mochi"
+  :onboarding/desc "  Mochi是一个帮助你记忆的笔记和闪卡工具。"
+  :onboarding/get-started "开始"
+  :onboarding/already-have-an-account? "你已经有账户了吗？"
+  :onboarding/log-in "登录"
 
-  :log-in-form/title "Log in to your account"
-  :log-in-form/desc "If you have a Mochi account, log in below to sync your cards and data."
+  :log-in-form/title "登录"
+  :log-in-form/desc "如果你有Mochi Pro账户，请从下面登录以同步你的卡片和数据。"
 
-  :log-in/email:placeholder    "Email"
-  :log-in/password:placeholder "Password"
-  :log-in/submit               "Log in"
-  :log-in/submitting           "Logging in..."
-  :log-in/forgot-password?     "Forgot password?"
+  :log-in/email:placeholder    "邮箱"
+  :log-in/password:placeholder "密码"
+  :log-in/submit     "登录"
+  :log-in/submitting "登录中…"
+  :log-in/forgot-password?     "忘记密码？"
+  
 
-  :password-recovery/title "Password recovery"
-  :password-recovery/desc "We'll send a unique token to your email address, which you can use to change your password."
+  :password-recovery/title "密码恢复"
+  :password-recovery/desc "我们将向您的邮箱发送一个可用于更改密码的令牌。"
 
-  :log-in/send-token "Send token"
-  :log-in/sending-token "Sending..."
+  :log-in/send-token "发送令牌"
+  :log-in/sending-token "发送中…"
 
   :checkout/monthly   "Pay monthly"
   :checkout/annually  "Pay annually"
@@ -986,7 +992,7 @@
   :checkout/submiting "Subscribing..."
   :checkout/cancel    "Upgrade later"
 
-  :breadcrumb/go-to-deck (fn [deck-name] (str "Go to deck: " deck-name))
+  :breadcrumb/go-to-deck (fn [deck-name] (str deck-name "に行く"))
   :breadcrumb/click-to-rename "Click to rename deck"
   :breadcrumb/click-to-move "Click to move to a different deck | M"
 
@@ -1048,9 +1054,9 @@
   :errors/sqlite-migration:download-url:linux "https://download.mochi.cards/releases/Mochi-1.14.7.AppImage"
   :errors/sqlite-migration:download-url:windows "https://download.mochi.cards/releases/Mochi%20Setup%201.14.7.exe"
     
-  :type-answer/correct "Answer"
-  :icons/remembered "checkmark"
-  :icons/forgot "close"
+  :type-answer/correct "正确"
+  :icons/remembered "循环"
+  :icons/forgot "关闭"
   :set-template-alert/replace-content:title "Replace existing content?"
   :set-template-alert/replace-content:body
   [:<> "This card already contains content that was created before the current template was applied. Do you want to replace that content with the content from the current template?" [:br]
@@ -1122,401 +1128,50 @@
   :preferences/css-theme:no-theme "No theme"
   :preferences/css-theme:new-theme "Add theme"
 
-  :pages.review.review-buttons.skip-back/tooltip "Skip to previous card // Review the current card later | ←"
-  :pages.review.review-buttons.skip-forward/tooltip "Skip to next card // Review the current card later | →"
-  :pages.review.review-buttons.forget/tooltip "Mark this card as forgot"
-  :pages.review.review-buttons.remember/tooltip "Mark this card as remembered"
-  :pages.review.review-buttons.undo/tooltip "Undo last review | :kbd/mod z"
-  :pages.review.review-buttons.pin/tooltip "Pin card // Pin this card to the sidebar | shift P"
-  :pages.review.review-buttons.archive/tooltip "Archive card // Remove from review schedule | A"
-  :pages.review.review-buttons.delete/tooltip "Delete card // Send to trash | D"
-  :pages.review.review-mode-selector/inbox "All cards"
-  :pages.review/shuffle-button "Shuffle"
-  :pages.review/shuffle-button:tooltip "Randomize the order of cards"
+  :pages.review.review-buttons.skip-back/tooltip "返回上一张 // 稍后查看当前卡片 | ←"
+  :pages.review.review-buttons.skip-forward/tooltip "前往下一张 // 稍后查看当前卡片 | →"
+  :pages.review.review-buttons.forget/tooltip "将此卡片标记为【忘记】"
+  :pages.review.review-buttons.remember/tooltip "将此卡片标记为【记得】"
+  :pages.review.review-buttons.undo/tooltip "撤销上次复习 | :kbd/mod z"
+  :pages.review.review-buttons.pin/tooltip "将卡片固定 // 将此卡片固定在侧边栏 | shift P"
+  :pages.review.review-buttons.archive/tooltip "将卡片归档 // 从复习计划中删除 | A"
+  :pages.review.review-buttons.delete/tooltip "将卡片删除 // 移动到回收站 | D"
+  :pages.review.review-mode-selector/inbox "所有卡片"
+  :pages.review/shuffle-button "洗牌"
+  :pages.review/shuffle-button:tooltip "卡片的顺序随机排列"
   :pages.review/estimate-next-interval
   (fn [{:keys [interval retire?]}]
     (cond
-      (= interval 0) " // Next review later today"
-      retire? " // Reached max interval, retire card"
-      :else (str " // Next review in " interval " " (pluralize interval "day"))))
-  
+      (= interval 0) " // 下次复习将在今天之内"
+      retire? " // 最大间隔已达到，将卡片移除"
+      :else (str " // 下次复习是" interval "天后")))
+    
   :pages.review.card/next-side-hint
   (fn [space down]
-    [:<> "Press" space "or" down "to reveal next side"])
+    [:<> space "键或" down "键按下去，下一面就会显示出来。"])
 
   :pages.review.card/cloze-hint
   (fn [space]
-    [:<> "Press" space "to reveal hidden text"])
+    [:<> space "键按下去，隐藏的文字就会显示出来。"])
 
   :pages.review.card/last-side-hint
   (fn [space f]
-    [:<> "Press " space " if remembered, or " f " if forgot."])}
+    [:<> "如果记得的话" space "键，如果忘记的话" f "键按下去。"])
 
-
- :ja
- {:side-bar/dashboard "ダッシュボード"
-  :side-bar/new-cards "新規カード"
-  :side-bar/settings "設定"
-  :side-bar/due-today "今日の復習"
-  :side-bar/jump-to "検索"
-  :side-bar/add-deck "新規デッキ"
-  :side-bar/inbox     "受信トレイ"
-
-  :side-bar.account/log-in   "ログイン"
-  :side-bar.account/log-out   "ログアウト"
-
-  :side-bar.account/sign-up  "登録する"
-  :sign-up/heading           "登録"
-  :sign-up/submit            "登録する"
-  :sign-up/submit-loading    "登録中…"
-  :sign-up.checkout/heading "チェックアウト"
-
-  :side-bar.account/logged-out "ゲスト"
-  :side-bar.account/offline "オフライン"
-
-  :onboarding/go-back "← 戻る"
-  :onboarding/welcome "Mochiへようこそ！"
-  :onboarding/desc "Mochiは、物事を覚えるためのメモやフラッシュカードを作成するためのツールです。"
-  :onboarding/get-started "開始"
-  :onboarding/already-have-an-account? "アカウントをお持ちですか？"
-  :onboarding/log-in "ログイン"
-
-  :log-in-form/title "ログインする"
-  :log-in-form/desc "Mochi Proアカウントをお持ちの方、 下記からログインしてカードとデータを同期してください。"
-  :log-in/email:placeholder    "電子メール"
-  :log-in/password:placeholder "パスワード"
-  :log-in/submit     "ログイン"
-  :log-in/submitting "ログイン中…"
-  :log-in/forgot-password?     "パスワードをお忘れですか？"
-
-  :password-recovery/title "パスワード復旧"
-  :password-recovery/desc "パスワードの変更に使用できるトークンをメールでお送りします。"
-
-  :log-in/send-token "トークンを送る"
-  :log-in/sending-token "送る中…"
-
-
-  :history-tooltip "このカードの復習のログ"
-  :history "復習のログ"
-
-  :finished-reviews "今日は完成！"
-  :finished-learning "今日は完成！"
-
-  :delete "ゴミ箱に移動"
-  :delete-card "カードを消去する"
-  :delete-note "メモを消去する"
-  :delete-deck "デッキを消去する"
-  :export "エクスポートする"
-  :export-note "メモをエクスポートする"
-  :export-deck "デッキをエクスポートする"
-
-  :edit "編集"
-  :edit-note "メモを編集する"
-  :edit-card "カードを編集する"
-
-  ;; Import progress modal
-  :importing "インポート中…"
-  :exporting "エクスポート中…"
-  :import "インポート"
-
-  :default-deck-name "新規デッキ"
-  :selection-popover/add-card "新規カード" ;; Make card from selection
-  :save "保存"
-  :saving "保存中"
-  :cancel "キャンセル"
-  :new "新規"
-  :back "前に"
-
-  :card-content-placeholder "何かが覚えたい？"
-
-  :pages.deck.review-button/label       "カードを復習する"
-  :pages.deck.review-button/label:empty "今日のカードなし"
-
-  :pages.deck.learn-button/label       "新規カード"
-  :pages.deck.learn-button/label:empty "新規カードなし"
-
-  :pages.deck.quick-review-button/label   "総学習"
-
-  :no-due-cards "今日のカードなし"
-  :copy-link "ＩＤをコピー"
-
-  :move-card-to "移動…"
-
-  ;; Review History
-  :learned "覚えた"
-
-  :preview "プレビュー"
+  :no-due-cards "今日没有卡片"
 
   :are-you-sure-you-want-to-delete-deck
-    "このデッキを消去しますか？"
-  :yes-delete-deck "はい、消去する。"
+    "你确定要删除此牌组吗？"
+
   :are-you-sure-you-want-to-delete-note
-    "このメモを消去しますか？"
-  :yes-delete-note "はい、消去する。"
+    "你确定要删除此笔记吗？"
 
-  :make-cards-from-note "Make cards from this note"
-  :make-cards-tooltip "このメーモからカードを自動的に作成する"
-
-  :cant-find-note "このメモを探すのはできません！"
-  :cant-find-deck "このデックを探すのはできません！"
-
-  :note-content-placeholder "何が書きたいですか？"
-
-  :add-to-reviews "復習に追加"
-
-  :add-card "新規カード"
-
-  ;; Modal message
-  :imported-deck-already-exists "このデックはもうあります。"
-  :imported-note-already-exists "このメーモはもうあります。"
-  :imported-card-already-exists "このカードはもうあります。"
-
-  ;; Auto card generation from notes.
-  :no-new-cards-found "新規カードを見つけられません。"
-
-  :auto-update
-  {:auto-update.status/download-and-install "ダウンロードしてインストールする"
-   :auto-update.status/update-available "新しいバージョンが利用可能になりました！"
-   :auto-update.status/beta-available   [:<> "新しい" [:strong "ベータ版"] "が公開されました！"]
-   :auto-update.status/desc
-   (fn [update-version]
-     [:<>
-      "新着情報は"
-      [:a {:style {:font-style "italic"
-                   :text-decoration "underline"
-                   "&:hover" {:text-decoration "underline"}}
-           :href (if (includes? update-version "beta")
-                   "https://mochi.cards/beta-changelog/"
-                   "https://mochi.cards/changelog/")
-           :target "_blank"}
-       "こちらをご覧ください。"]])
-   :auto-update.status/backing-up       "バックアップ中……"
-   :auto-update.status/backing-up-desc  "ローカルデータのバックアップが実行されています。"
-   :auto-update.status/downloading      "ダウンロード中..."
-   :auto-update.status/downloaded       "ダウンロード完了"
-   :auto-update.status/downloaded-desc  "再起動してインストールしてください。"
-   :auto-update.status/failed           "更新に失敗しました"
-   :auto-update.status/failed:desc      (fn [msg]
-                                          [:<>
-                                           "更新の確認中にエラーが発生しました。 "
-                                           (when msg
-                                             [:<> [:br] msg])])}
-
-  :update-credit-card "クレジットカードを変える"
-  :updating-credit-card "クレジットカードを変える中"
-
-  :account-settings "アカウントの設定"
-
-  :all-synced "All synced"
-  :syncing "同期中…"
-  :reconnecting "Retrying..."
-  :sync-failed "Sync failed"
-
-  :archive-note "メモをアーカイブ"
-  :archive-deck "デックをアーカイブ"
-  :archived "アーカイブ"
-
-  :trash "ゴミ箱"
-
-  :breadcrumb/go-to-deck (fn [deck-name] (str deck-name "に行く"))
-
-  :chart/total-cards-learned      "累計学習カード数"
-  :chart/number-of-cards-learned  "学習カード数"
-  :chart/number-of-cards-reviewed "レビュー数"
-  :chart/retention-rate           "定着率"
-  :chart/review-time              "レビュー時間"
-  :chart/review-forecast          "レビュー予測"
-  :chart/intervals                "間隔"
-
-  :chart/previous-period          " 前期間"
-
-  :dashboard.stats/today "今日"
-  :dashboard.stats/all-time "全期間"
-  :dashboard.stats/average "平均"
-
-  :dashboard/overview "概要"
-
-  :dashboard.deck-selector/all-decks "すべてのデッキ"
-  :dashboard.deck-selector/placeholder "デッキを検索"
-
-  :dashboard.charts/period
-  (fn [period]
-    (let [[num unit] period]
-      (if (= num :all)
-        "全期間"
-        (str "過去" num (case unit
-                          :days "日"
-                          :weeks "週間"
-                          :months "か月"
-                          (name unit))))))
-
-  :dashboard.charts/segment
-  (fn [segment]
-    (case segment
-      :days "日別"
-      :weeks "週別"
-      :months "月別"
-      "不明"))
-
-  :pages.dashboard.duration/hour "時間"
-  :pages.dashboard.duration/minute "分"
-  :pages.dashboard.duration/second "秒"
-
-  :pages.dashboard.charts.deck-progress/title "デッキの進捗"
-  :pages.dashboard.charts.deck-progress.select-deck/placeholder "デッキを検索"
-  :pages.dashboard.charts.deck-progress/details "詳細"
-
-  :pages.dashboard.stats/cards-learned "学習カード数"
-  :pages.dashboard.stats/cards-learned-average "1日平均学習カード数"
-
-  :pages.dashboard.stats/retention-rate "定着率"
-
-  :pages.dashboard.stats/total-reviews "総レビュー数"
-  :pages.dashboard.stats/total-reviews-average "1日平均レビュー数"
-
-  :pages.dashboard.stats/review-time "レビュー時間"
-  :pages.dashboard.stats/review-time-average "1日平均時間"
-
-  :pages.dashboard.review-heatmap/title "レビュー活動"
-  :pages.dashboard.review-heatmap/summary
-  (fn [total-reviews total-days active-days]
-    [:<>
-     [:strong (intcomma total-reviews)]
-     " 回のレビュー • "
-     [:strong (intcomma total-days)]
-     " 日間 • "
-     [:strong (intcomma active-days)]
-     " アクティブ日"])
-
-  :pages.dashboard.review-heatmap/tooltip
-  (fn [num date]
-    (str date "に" num "回レビュー"))
-
-  :search-placeholder "このデッキの中に検索"
-
-  :interval-settings "復習の設定"
-
-  :template-settings "テンプレート"
-  :template-settings/title "テンプレート"
-  :template-settings/subtitle "新規カードを作ったら指定テンプレートが利用されます。またカードずつのテンプレートを指定することができます。テンプレートなしの場合は、カードで直接的になんでも書ける。"
-  :template-settings/new-template "新規テンプレート"
-  :template-settings/no-template "テンプレートなし"
-  :template-settings/template-fields "テンプレートのフィールド"
-  :template-settings/template-fields:hint "フィールドを使用すると、カードにデータを追加できます。フィールドの値はテンプレートで使用できます。"
-
-  :sort/sort            "ソート"
-  :sort/direction       "Ascending"
-  :sort/manual          "Clear sort (manual)"
-  :sort/retention-rate  "Retention rate"
-  :sort/alphabetical    "英数字"
-  :sort/created-at      "作成日順"
-  :sort/updated-at      "更新日順"
-  :sort/interval-length "Last interval"
-  :sort/due-date        "Due date"
-  :sort/random          "順序不同"
-
-  :deck/filter "フィルタ"
-  :deck-page/search-placeholder "このデックを検索する"
-  :preferences "環境設定"
-  :export/everything "すべてをエクスポート"
-
-  :deck-preferences "デックの設定"
-  :rename "名前を変更する"
-  :duplicate "複製する"
-  :deck-views/add-view "新規ビュー"
-
-  :preferences/title "環境設定"
-  :preferences/font-style "フォントスタイル"
-  :preferences/font-size "フォントサイズ"
-  :preferences/dark-mode "ダークモード"
-  :preferences/code-block-soft-wrap:title "コードブロックのソフトラップ"
-  :preferences/code-block-soft-wrap:desc "マークダウンのコードブロック内の行がウィンドウ幅を超えた場合、次の行に折り返します。"
-
-  :type-answer/correct "成功"
-
-  :review-settings/title (fn [& [parent]]
-                           (str (when parent (str (:name parent) "の"))
-                                "復習の設定"))
-  :review-settings/desc:global "ここではカードをどのように復習するかについて設定を調整できます。これらの設定は全てのカードに影響しますが個々のデッキやノートの復習の設定によって上書きされます。"
-  :review-settings/desc:local "ここではカードをどのように復習するかについて設定を調整できます。"
-  :review-settings/remember-multiplier "記憶乗数"
-  :review-settings/remember-multiplier:tooltip "この設定値はカードを覚えた時の次回の復習日を遠くします。 // ヒント: 2であれば復習間隔を2倍にします。"
-  :review-settings/forgot-multiplier "忘却乗数"
-  :review-settings/forgot-multiplier:tooltip "この設定値はカードを忘れた時の次回の復習日を近くします。 // ヒント: 0.5であれば復習の間隔を半分にします。"
-  :review-settings/max-interval "最大間隔"
-  :review-settings/max-interval:days (fn [_] "日")
-  :review-settings/max-interval:tooltip "次回の復習までの最大間隔。 // 制限を設けたくなければ空欄にしてください。"
-  :review-settings/simulator:instructions "下のボタンを使うとカードへのアクションがどのように復習スケジュールへ影響するか確認できます。"
-  :review-settings/simulator:added "追加した"
-  :review-settings/simulator:days "日"
-  :review-settings/simulator:remember "覚えた"
-  :review-settings/simulator:forget "忘れた"
-  :review-settings/simulator:reset "リセット"
-
-  :review-settings/inherit-from-parent "Use setting from parent deck"
-  :review-settings/inherit-from-global "Use global setting"
-
-  :review-settings/retire-cards-title "最大間隔に達したカードを学習から外す"
-  :review-settings/retire-cards-desc "このオプションが有効な場合、カードの復習期間が最大間隔に達しているカードは復習に含まれなくなります。オプションが無効な場合は復習期間が最大間隔のまま引き続き復習に含まれます。"
-  :review-settings/retire-cards-yes "外す"
-  :review-settings/retire-cards-no "外さない"
-
-  :review-settings/multiplier-noise-title "復習期限にランダム性を追加"
-  :review-settings/multiplier-noise-desc "この設定が有効な場合、少しのランダム性を復習期限に追加します。これによって同じカードのグループが同じ日に現れることを防ぐことができます。上のシミュレーターを使ってランダム性がどのように動作しているか確認できます。"
-  :review-settings/multiplier-noise-yes "ランダム性を追加"
-  :review-settings/multiplier-noise-no "ランダム性を追加しない"
-
-  :review-settings/review-reverse-title "カードの順序を変更"
-  ; :review-settings/review-reverse-desc "For each card, also review the sides from \"back\" to \"front\". The last side will be shown first, followed by the second to last side, etc. Reverse reviews will have a separate review history from normal reviews."
-  :review-settings/review-reverse-desc "この設定では、面が複数あるカードは上から下へ、また下から上へというようにカード内の復習の順序を変更できます。カードはそれぞれの順序の復習履歴を保存します。"
-  :review-settings/review-reverse-yes "逆順にする"
-  :review-settings/review-reverse-no "逆順にしない"
-
-  :review-settings/new-cards-limit "1日のカード制限"
-  :review-settings/new-cards-limit-desc "ここでは1日に何枚のカードを勉強したいかを設定できます。枚数に制限を設けたくなければフォームを空欄にしてください。"
-  :review-settings/new-cards-limit-placeholder "制限なし"
-  :review-settings/new-cards-limit-cards-per-day "枚/日"
-
-  :review-settings/save "設定を保存"
-  :review-settings/cancel "キャンセル"
-
-  :icons/remembered "circle"
-  :icons/forgot "close"
-
-  :review/remember "覚えた"
-  :review/forgot   "忘れた"
-  :review/again    "再び"
-    
-  :alert.cannot-delete-template/title "テンプレートを消去できません。"
-  :alert.cannot-delete-template/cards-using "このテンプレートを使ったカードがあります。"
-  :alert.cannot-delete-template/delete-cards-first "これらのカードを削除するか、別のテンプレートに変更してください。"
-
-  :pages.review.review-buttons.skip-back/tooltip "前のカードへ // 現在のカードは後で確認する | ←"
-  :pages.review.review-buttons.skip-forward/tooltip "次のカードへ進む // 現在のカードは後で確認する | →"
-  :pages.review.review-buttons.forget/tooltip "このカードを「忘れた」としてマークする"
-  :pages.review.review-buttons.remember/tooltip "このカードを「覚えた」としてマークする"
-  :pages.review.review-buttons.undo/tooltip "前回の復習を元に戻す | :kbd/mod z"
-  :pages.review.review-buttons.pin/tooltip "カードをピン留め // このカードをサイドバーにピン留め | shift P"
-  :pages.review.review-buttons.archive/tooltip "カードをアーカイブ // 復習のスケジュールから削除 | A"
-  :pages.review.review-buttons.delete/tooltip "カードを削除 // ゴミ箱へ移動 | D"
-  :pages.review.review-mode-selector/inbox "すべてのカード"
-  :pages.review/shuffle-button "シャッフルする"
-  :pages.review/shuffle-button:tooltip "カードの順番をランダムにする"
-  :pages.review/estimate-next-interval
-  (fn [{:keys [interval retire?]}]
-    (cond
-      (= interval 0) " // 次の復習は今日のうちに"
-      retire? " // 最大間隔に達したため、カードをリタイアする"
-      :else (str " // 次の復習は" interval "日後")))
+  :no-new-cards-found "未找到新卡片。"
   
-  :pages.review.card/next-side-hint
-  (fn [space down]
-    [:<> space "キーまたは" down "キーを押すと、次の面が表示されます。"])
 
-  :pages.review.card/cloze-hint
-  (fn [space]
-    [:<> space "キーを押すと、隠されたテキストが表示されます。"])
+  :search-placeholder "搜索此牌组"
 
-  :pages.review.card/last-side-hint
-  (fn [space f]
-    [:<> "覚えている場合は" space "キーを、忘れた場合は" f "キーを押してください。"])}}
+  :review/again    "再试"
+      
+}
+}
