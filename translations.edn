@@ -1,14 +1,14 @@
 {:en
  {:home "Home"
 
-  :side-bar/decks         "Decks"
-  :side-bar/tags          "Tags"
-  :side-bar/templates     "Templates"
-  :side-bar/pins          "Pinned"
-  :side-bar/empty-deck    "No decks inside"
+  :side-bar/decks         "牌组"
+  :side-bar/tags          "标签"
+  :side-bar/templates     "模板"
+  :side-bar/pins          "固定"
+  :side-bar/empty-deck    "空牌组"
   :side-bar/dashboard "面板"
-  :side-bar/undo          "Undo"
-  :side-bar/redo          "Redo"
+  :side-bar/undo          "撤销"
+  :side-bar/redo          "重做"
   :side-bar/due-today "今日的复习"
   :side-bar/new-cards "新建卡片"
   :side-bar/settings "设置"
@@ -16,8 +16,8 @@
   :side-bar/add-deck "新建牌组"
   :side-bar/inbox     "收件箱"
 
-  :embedded-card/remember "Remembered"
-  :embedded-card/forgot   "Forgot"
+  :embedded-card/remember "记住"
+  :embedded-card/forgot   "忘记"
 
   :review/remember "记住"
   :review/forgot   "忘记"
@@ -96,15 +96,15 @@
 
 
 
-  :card.tags.retired/label "Retired"
-  :card.tags.retired/tooltip (fn [max-interval] (str "This card has reached the max interval of " max-interval " days // It won't show up for review anymore"))
+  :card.tags.retired/label "已回收"
+  :card.tags.retired/tooltip (fn [max-interval] (str "此卡片已达到“最大间隔”天数的最大间隔 // 将不再显示评论"))
   :card.tags.due-date/tooltip (fn [due today due-str]
                                 (if (>= due today)
-                                  (str "This card will be due again on " due-str)
-                                  (str "This card was due for review on " due-str)))
-  :card.tags.pinned/label "Pinned"
-  :card.tags.trashed/label "Trashed"
-  :card.tags.archived/label "Archived"
+                                  (str "此卡的再次到期日是 " due-str)
+                                  (str "此卡的到期日是 " due-str)))
+  :card.tags.pinned/label "已固定"
+  :card.tags.trashed/label "已删除"
+  :card.tags.archived/label "已归档"
 
 
   :side-bar.account/logged-out "访客"
@@ -116,14 +116,14 @@
   :sign-up/heading           "注册"
   :sign-up/submit            "注册"
   :sign-up/submit-loading    "注册中…"
-  :sign-up/cancel            "Sign up later"
+  :sign-up/cancel            "稍后注册"
 
-  :sign-up/name:placeholder "Name"
-  :sign-up/email:placeholder "Email"
-  :sign-up/password:placeholder "Password"
-  :sign-up/confirm-password:placeholder "Confirm password"
+  :sign-up/name:placeholder "姓名"
+  :sign-up/email:placeholder "邮箱"
+  :sign-up/password:placeholder "密码"
+  :sign-up/confirm-password:placeholder "确认密码"
 
-  :sign-up.verify/heading "Verify"
+  :sign-up.verify/heading "验证邮箱"
 
   :sign-up.checkout/heading "检查"
   :interval-settings "复习设置"
@@ -135,80 +135,79 @@
   :template-settings/template-fields "模板字段"
   :template-settings/template-fields:hint "使用字段可以在卡片上添加数据。字段的值可以在模板中使用。"
 
-  :template-settings/attachments "Attachments"
-  :template-settings/attachments:hint "You can attach files like images and audio to your templates for use in every card."
+  :template-settings/attachments "附件"
+  :template-settings/attachments:hint "你可以将文件（如图片和音频）附加到模板上，以便在每张卡片中使用。"
 
-  :template/confirm-delete "Really delete this template?"
-  :template/yes-delete "Delete template"
-  :template/editor-placeholder "Write markdown or type '/' to add fields"
+  :template/confirm-delete "确定要删除这个模板吗？"
+  :template/yes-delete "删除模板"
+  :template/editor-placeholder "编辑 Markdown 或输入 '/' 来添加字段"
 
-  :field/name-placeholder "Field name"
-  :field/confirm-delete "Really delete this field?"
-  :field/delete-subtext "This field will also be removed from any cards that are using it."
-  :field/yes-delete "Delete field"
-  :field/primary-description "This is the card's primary field and cannot be removed.
-It is used to represent the card in other parts of the UI."
+  :field/name-placeholder "字段名称"
+  :field/confirm-delete "确定要删除这个字段吗？"
+  :field/delete-subtext "这个字段也会从使用它的任何卡片中被移除。"
+  :field/yes-delete "删除字段"
+  :field/primary-description "这是卡片的主要字段，无法被删除。它用于在用户界面的其他部分表示卡片。"
 
-  :fields.dictionary/hide-term "Hide term"
+  :fields.dictionary/hide-term "隐藏术语"
 
-  :attachment/confirm-delete "Really remove this attachment?"
-  :attachment/delete-subtext "The attachment will be deleted and cannot be undone."
-  :attachment/yes-delete "Remove attachment"
+  :attachment/confirm-delete "确定要删除这个附件吗？"
+  :attachment/delete-subtext "这个附件将会从使用它的所有卡片中被移除。"
+  :attachment/yes-delete "删除附件"
 
-  :confirm-reset-templates/title "Set this template on all cards?"
-  :confirm-reset-templates/description "This will update all cards in the deck to use the selected template. Cards that previously used a different template will keep their field data, but you won't be able to see or edit them."
-  :confirm-reset-templates/confirm "Change templates"
+  :confirm-reset-templates/title "更改模板？"
+  :confirm-reset-templates/description "此操作将更新牌组中的所有卡片以使用所选模板。之前使用不同模板的卡片将保留其字段数据，但你将无法查看或编辑它们。"
+  :confirm-reset-templates/confirm "更改模板"
 
   :preferences "偏好"
 
   :deck-preferences "牌组设置"
 
-  :reset-review-history "Reset Review History"
-  :confirm-reset-review-history/title "Reset review history?"
-  :confirm-reset-review-history/description "This will remove the review history from all cards in this deck."
-  :confirm-reset-review-history/description-card "This will remove all reviews and reverse reviews from this card."
-  :confirm-reset-review-history/description-note "This will remove the review history from all cards in this note."
-  :confirm-reset-review-history/confirm "Remove all reviews"
+  :reset-review-history "重置复习记录"
+  :confirm-reset-review-history/title "重置复习记录？"
+  :confirm-reset-review-history/description "此操作将删除所有卡片的复习记录"
+  :confirm-reset-review-history/description-card "此操作将删除此卡片的复习记录"
+  :confirm-reset-review-history/description-note "此操作将从该笔记中的所有卡片中删除复习记录"
+  :confirm-reset-review-history/confirm "删除所有复习记录"
 
-  :toast/reviews-reset "Review history cleared"
+  :toast/reviews-reset "复习记录已清除"
 
   ;; Card views
-  :note-view "Notebook View"
-  :list-view "List View"
-  :table-view "Table View"
-  :column-view "Column View"
-  :grid-view "Grid View"
-  :unknown-view "Unknown View"
+  :note-view "笔记视图"
+  :list-view "列表视图"
+  :table-view "表格视图"
+  :column-view "列视图"
+  :grid-view "网格视图"
+  :unknown-view "未知视图"
 
   :x-cards-due-today-from-deck
   (fn [card-count]
     (if (> card-count 1)
-      (str card-count " cards from this deck are due today")
-      (str card-count " card from this deck is due today")))
+      (str card-count " 此牌组的卡片今天到期")
+      (str card-count " 此牌组的该卡片今天到期")))
   :x-cards-due-today-from-note
   (fn [card-count]
     (if (> card-count 1)
-      (str card-count " cards from this note are due today")
-      (str card-count " card from this note is due today")))
+      (str card-count " 此笔记的卡片今天到期")
+      (str card-count " 此笔记的该卡片今天到期")))
   :x-cards-due
   (fn [card-count]
     (if (> card-count 1)
-      (str "You have " card-count " cards due for review today")
-      (str "You have " card-count " card due for review today")))
+      (str "你有 " card-count " 今天需要复习的卡片")
+      (str "你有 " card-count " 今天需要复习的卡片")))
   :x-new-cards
   (fn [card-count]
     (if (> card-count 1)
-      (str "You have " card-count " new cards to learn")
-      (str "You have " card-count " new card to learn")))
+      (str "你有 " card-count " 新卡片需要学习")
+      (str "你有 " card-count " 新卡片需要学习")))
   :x-cards-reviewed
   (fn [review-count rereview-count]
-    (str "You've reviewed " review-count " " (pluralize review-count "card") " today // " rereview-count " " (pluralize rereview-count "card") " " (if (> rereview-count 1) "need" "needs") " re-review"))
+    (str "你已经复习了 " review-count " " (pluralize review-count "card") " 今天 // " rereview-count " " (pluralize rereview-count "card") " " (if (> rereview-count 1) "需要" "需要") " 重新复习"))
 
   :x-cards-learned
   (fn [card-count]
-    (str "You've learned " card-count " " (pluralize card-count "card") " today"))
+    (str "你已经学会了 " card-count " " (pluralize card-count "card") " 今天"))
 
-  :review-reverse-enabled-for-deck "Reverse reviews are enabled for this deck."
+  :review-reverse-enabled-for-deck "此卡组已启用反向复习。"
 
   ;; Card View
   :add-card "新建卡片"
@@ -216,18 +215,18 @@ It is used to represent the card in other parts of the UI."
   ;; Modal message
   :history-tooltip "此卡片的复习记录"
   :history "复习记录"
-  :reverse-history "Reverse History"
+  :reverse-history "反向复习记录"
 
-  :public "Public"
-  :published "Published"
+  :public "公开"
+  :published "已发布"
   :archived "已归档"
-  :archive-card "Archive Card"
+  :archive-card "牌片归档"
   :archive-deck "牌组归档"
   :archive-note "笔记归档"
-  :deck-archive-tooltip "Cards in this deck will not show up for review."
+  :deck-archive-tooltip "此牌组的卡片不会在复习中显示"
 
-  :archive-deck-tooltip "When a deck is archived, none of its cards will show up for review."
-  :archive-note-tooltip "When a note is archived, none of its cards will show up for review."
+  :archive-deck-tooltip "当一个牌组被归档时，其中的任何卡片都不会在复习中显示。"
+  :archive-note-tooltip "当一个笔记被归档时，其中的任何卡片都不会在复习中显示。"
 
   ;; Card modal view
   :move-card-to "移动到…"
@@ -237,159 +236,158 @@ It is used to represent the card in other parts of the UI."
   :pages.deck.review-button/label:empty "今日没有卡片"
   :pages.deck.review-button/tooltip     
   (fn [card-count]
-    (str "Review " card-count " " (pluralize card-count "card") " due today"))
-  :pages.deck.review-button/tooltip:empty "No cards due today // Learning new cards will schedule them for review later."
+    (str "复习 " card-count " " (pluralize card-count "card") " 今日到期"))
+  :pages.deck.review-button/tooltip:empty "今日没有卡片 // 新学习的卡片稍后将被添加到复习中"
 
   :pages.deck.learn-button/label       "新建卡片"
   :pages.deck.learn-button/label:empty "今日没有新卡片"
-  :pages.deck.learn-button/tooltip     "Learn new cards and add them to the review schedule"
+  :pages.deck.learn-button/tooltip     "学习新卡片并将其添加到复习计划中"
 
   :pages.deck.quick-review-button/label   "总学习"
-  :pages.deck.quick-review-button/tooltip "Quick review filtered / searched cards // Does not affect review scheduling"
-  :pages.deck.save-deck/label "Save Deck"
-  :pages.deck.save-deck/label:loading "Cloning deck"
-  :pages.deck.save-deck/tooltip "Save this deck to your collection"
-  :pages.deck.publish/label "Share"
+  :pages.deck.quick-review-button/tooltip "快速复习筛选/搜索的卡片 // 不影响复习计划"
+  :pages.deck.save-deck/label "保存牌组"
+  :pages.deck.save-deck/label:loading "克隆牌组中…"
+  :pages.deck.save-deck/tooltip "保存此牌组到你的收藏中"
+  :pages.deck.publish/label "分享"
 
-  :pages.deck.publish/tooltip "When published, anyone with the link can view this deck"
-  :pages.deck.publish/tooltip:you-must-be-logged-in "You must be logged in to publish"
-  :pages.deck.publish/tooltip:upgrade "Upgrade to Mochi Pro to publish"
-  :pages.deck.publish/copy "Copy Link"
-  :pages.deck.publish/copied "Copied!"
+  :pages.deck.publish/tooltip "分享此牌组 // 任何拥有链接的人都可以查看"
+  :pages.deck.publish/tooltip:you-must-be-logged-in "你必须登录才能分享牌组"
+  :pages.deck.publish/tooltip:upgrade "你需要升级到Pro才能分享牌组"
+  :pages.deck.publish/copy "复制链接"
+  :pages.deck.publish/copied "链接已复制"
 
-  :save-deck/loading                 "Cloning deck"
-  :save-deck/downloading-cards       "Downloading cards..."
-  :save-deck/saving-cards            "Saving cards..."
-  :save-deck/downloading-attachments "Downloading attachments..."
-  :save-deck/saving-attachments      "Saving attachments..."
-  :save-deck/updating-refs           "Updating references..."
+  :save-deck/loading                 "克隆牌组中…"
+  :save-deck/downloading-cards       "下载卡片中..."
+  :save-deck/saving-cards            "保存卡片中..."
+  :save-deck/downloading-attachments "下载附件中..."
+  :save-deck/saving-attachments      "保存附件中..."
+  :save-deck/updating-refs           "更新引用中..."
 
-  :save-deck-prompt/title   (fn [deck-name] (str "Save \"" deck-name "\" to your collection?"))
-  :save-deck-prompt/subtext "Would you like to save this deck so your progress is saved?"
-  :save-deck-prompt/yes     "Save deck"
-  :save-deck-prompt/no      "Not now"
+  :save-deck-prompt/title   (fn [deck-name] (str "保存 \"" deck-name "\" 到你的收藏?"))
+  :save-deck-prompt/subtext "保存此牌组以保存进度？"
+  :save-deck-prompt/yes     "保存牌组"
+  :save-deck-prompt/no      "暂不保存"
 
   :deck/filter "过滤"
   :learned "已学会"
-  :new-blank-deck "New Empty Deck"
-  :new-blank-note "New Empty Note"
-  :new-deck-from-template "New Deck from Template"
-  :import-deck "Import Deck"
+  :new-blank-deck "新建空白牌组"
+  :new-blank-note "新建空白笔记"
+  :new-deck-from-template "从模板新建牌组"
+  :import-deck "从文件导入牌组"
   :import "导入"
-  :browse-online "Browse from online database"
+  :browse-online "从在线数据库中浏览"
 
   ;; Default names when creating new records
-  :default-note-name "Untitled note"
+  :default-note-name "未命名笔记"
   :default-deck-name "新建牌组"
-  :alert.unsaved-changes/title "Discard changes?"
-  :alert.unsaved-changes/subtext "You have unsaved changes. Are you sure you want to discard them?"
-  :alert.unsaved-changes/subtext:new-card "You have unsaved changes. Do you want to discard them before creating a new card?"
-  :alert.unsaved-changes/confirm "Close and discard"
-  :alert.unsaved-changes/confirm:new-card "Discard changes"
-  :alert.unsaved-changes/cancel "Keep editing"
+  :alert.unsaved-changes/title "放弃更改吗？"
+  :alert.unsaved-changes/subtext "你有未保存的更改。你确定要放弃它们吗？"
+  :alert.unsaved-changes/subtext:new-card "你有未保存的更改。你在创建新卡片前想要放弃它们吗？"
+  :alert.unsaved-changes/confirm "关闭并放弃"
+  :alert.unsaved-changes/confirm:new-card "放弃更改"
+  :alert.unsaved-changes/cancel "继续编辑"
 
   :alert.cannot-delete-template/title "无法删除模板。"
   :alert.cannot-delete-template/cards-using "有卡片正在使用此模板。"
   :alert.cannot-delete-template/delete-cards-first "请先删除这些卡片或将它们更改为其他模板。"
 
-  :do-you-want-to-save-first? "Discard changes?"
-  :do-you-want-to-save-first/subtext "You have unsaved changes. Are you sure you want to discard them?"
+  :do-you-want-to-save-first? "放弃更改吗？"
+  :do-you-want-to-save-first/subtext "你有未保存的更改。你确定要放弃它们吗？"
   :save "保存"
-  :save-and-close "Save & Close"
-  :save-and-new "Save & Add"
-  :account.general-info/save "Update account"
-  :account.general-info/saving "Updating account"
-  :done "Done"
+  :save-and-close "保存并关闭"
+  :save-and-new "保存并新建"
+  :account.general-info/save "上传账户信息"
+  :account.general-info/saving "上传账户信息中"
+  :done "完成"
   :saving "保存中"
   :cancel "取消"
   :delete "移至回收站"
   :rename "重命名"
-  :move-to "Move to"
-  :add-nested-deck "Add subdeck"
+  :move-to "移动到…"
+  :add-nested-deck "添加子牌组"
   :delete-card "删除卡片"
   :delete-note "删除笔记"
   :delete-deck "删除牌组"
   :export-note "导出笔记"
 
-  :multi-card-actions/button-label "Actions"
-  :multi-card-actions/move "Move to"
-  :multi-card-actions/archive "Archive"
-  :multi-card-actions/unarchive "Unarchive"
-  :multi-card-actions/pin "Pin"
-  :multi-card-actions/unpin "Unpin"
-  :multi-card-actions/delete "Delete"
-  :multi-card-actions/learn "Add to Reviews"
-  :multi-card-actions/reset-reviews "Reset Reviews History"
-  :multi-card-actions/review-reverse:on "Enable Reverse Review"
-  :multi-card-actions/review-reverse:off "Disable Reverse Review"
-  :multi-card-actions/add-or-remove-tags "Change Tags"
+  :multi-card-actions/button-label "操作"
+  :multi-card-actions/move "移动到"
+  :multi-card-actions/archive "归档"
+  :multi-card-actions/unarchive "取消归档"
+  :multi-card-actions/pin "标记"
+  :multi-card-actions/unpin "取消标记"
+  :multi-card-actions/delete "删除"
+  :multi-card-actions/learn "添加到复习"
+  :multi-card-actions/reset-reviews "重置复习记录"
+  :multi-card-actions/review-reverse:on "启用反向复习"
+  :multi-card-actions/review-reverse:off "禁用反向复习"
+  :multi-card-actions/add-or-remove-tags "添加或移除标签"
 
 
-  :modal.add-or-remove-tags/search-placeholder "Search for tags to add or remove"
-  :modal.add-or-remove-tags/new-tag "New tag"
+  :modal.add-or-remove-tags/search-placeholder "搜索标签并更改"
+  :modal.add-or-remove-tags/new-tag "新建标签"
 
 
   :cards/delete:alert:title
   (fn [card-count]
-    (str "Delete " (intcomma card-count) " selected " (pluralize card-count "card") "?"))
+    (str "删除 " (intcomma card-count) " 已选择 " (pluralize card-count "card") "?"))
 
   :cards/delete:alert:desc
   (fn [card-count]
-    (str "Are you sure you want to delete " (intcomma card-count) " " (pluralize card-count "card") "? You can restore them from the trash later."))
+    (str "你确定要删除 " (intcomma card-count) " " (pluralize card-count "card") "? 你可以从回收站恢复它们。"))
 
   :cards/delete:alert:confirm
   (fn [card-count]
-    (str "Yes, delete " (intcomma card-count) " " (pluralize card-count "card")))
-
+    (str "是的，删除 " (intcomma card-count) " " (pluralize card-count "card")))
   :cards/archive:alert:title
   (fn [card-count]
-    (str "Archive " (intcomma card-count) " selected " (pluralize card-count "card") "?"))
+    (str "归档 " (intcomma card-count) " 已选择 " (pluralize card-count "card") "?"))
 
   :cards/archive:alert:desc
   (fn [card-count]
-    (str "Are you sure you want to archive " (intcomma card-count) " " (pluralize card-count "card") "?"))
+    (str "你确定要归档 " (intcomma card-count) " " (pluralize card-count "card") "?"))
   :cards/archive:alert:confirm
   (fn [card-count]
-    (str "Yes, archive " (intcomma card-count) " " (pluralize card-count "card")))
+    (str "是的，归档 " (intcomma card-count) " " (pluralize card-count "card")))
 
   :cards/reset-reviews:alert:title
   (fn [card-count]
-    (str "Reset review histories of " (intcomma card-count) " selected " (pluralize card-count "card") "?"))
+    (str "重置 " (intcomma card-count) " 已选择 " (pluralize card-count "card") " 的复习记录?"))
   :cards/reset-reviews:alert:desc
   (fn [card-count]
-    (str "Are you sure you want to reset the review histories of " (intcomma card-count) " " (pluralize card-count "card") "? You will lose any progress and reset the cards to the \"new\" state."))
+    (str "你确定要重置 " (intcomma card-count) " " (pluralize card-count "card") " 的复习记录吗？你将失去任何进度并将卡片重置为 \"new\" 状态。"))
   :cards/reset-reviews:alert:confirm
   (fn [card-count]
-    (str "Yes, reset review histories for " (intcomma card-count) " " (pluralize card-count "card")))
+    (str "是的，重置 " (intcomma card-count) " " (pluralize card-count "card") " 的复习记录"))
 
-  :note.legacy/make-cards-from-note "Make cards from this note"
+  :note.legacy/make-cards-from-note "从此笔记创建卡片"
   :export-deck "导出牌组"
   :export "导出"
-  :export/deck-name (fn [deck-name] (str "Export " deck-name))
-  :export/submit "Export"
-  :export/submitting "Exporting..."
-  :export/format "Export format"
-  :export/mochi-format "Mochi format"
+  :export/deck-name (fn [deck-name] (str "导出 " deck-name))
+  :export/submit "导出"
+  :export/submitting "导出中…"
+  :export/format "  选择导出格式"
+  :export/mochi-format "Mochi 格式"
   :export/markdown-format "Markdown"
   :export/csv-format "CSV"
   :export/sqlite-format "SQLite"
-  :export/keep-reviews "Include review history"
-  :export/ids-in-file-names "Include IDs in file names"
-  :export/include-subdecks "Include subdecks"
-  :export/csv-render-cards "Prerender cards"
+  :export/keep-reviews "保留复习记录"
+  :export/ids-in-file-names "在文件名中包含ID"
+  :export/include-subdecks "包含子牌组"
+  :export/csv-render-cards "预渲染卡片内容（仅CSV）"
   :export/everything "导出全部"
-  :export/error-title "Unable to export"
-  :export/error-msg [:<> "There was a problem while trying to export." [:br] "Please contact " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
+  :export/error-title "导出失败"
+  :export/error-msg [:<> "导出时出现问题。" [:br] "请联系 " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
 
-  :export-progress.mochi/title "Exporting..."
-  :export-progress.mochi/subtitle:collecting-data "Collecting data"
-  :export-progress.mochi/subtitle:adding-cards "Adding cards + attachments"
-  :export-progress.mochi/subtitle:generating-archive "Archiving data"
+  :export-progress.mochi/title "正在导出到Mochi格式…"
+  :export-progress.mochi/subtitle:collecting-data "收藏数据中…"
+  :export-progress.mochi/subtitle:adding-cards "添加卡片中…"
+  :export-progress.mochi/subtitle:generating-archive "生成存档中…"
 
-  :publish "Publish"
+  :publish "发布"
   :edit "编辑"
   :edit-note "编辑笔记"
-  :duplicate-note "Duplicate Note"
+  :duplicate-note "复制笔记"
   :duplicate "复制"
   :edit-card "编辑卡片"
 
@@ -398,29 +396,29 @@ It is used to represent the card in other parts of the UI."
   :cant-find-note "无法找到此笔记！"
   :cant-find-deck "无法找到此牌组！"
 
-  :cards-to-learn "Learned today"
+  :cards-to-learn "今日已学"
 
-  :make-cards-from-note "Make cards from this note"
+  :make-cards-from-note "从笔记创建卡片"
   :make-cards-tooltip "自动从此笔记创建卡片"
   :copy-link "复制ID"
-  :copy-deck-id "Copy Deck ID"
+  :copy-deck-id "复制牌组ID"
 
-  :confirm-delete-deck/title "Delete this deck?"
-  :confirm-delete-deck/description "This action cannot be undone."
+  :confirm-delete-deck/title "删除此牌组？"
+  :confirm-delete-deck/description "此操作无法撤销。"
   :yes-delete-deck "是的，删除。"
 
-  :confirm-delete-note/title "Delete this note?"
-  :confirm-delete-note/description "This action cannot be undone."
+  :confirm-delete-note/title "删除此笔记？"
+  :confirm-delete-note/description "此操作无法撤销。"
   :yes-delete-note "是的，删除。"
 
-  :confirm-delete-card/title "Delete this card?"
-  :confirm-delete-card/description "This action cannot be undone."
-  :yes-delete-card "Delete card"
+  :confirm-delete-card/title "删除此卡片？"
+  :confirm-delete-card/description "此操作无法撤销。"
+  :yes-delete-card "是的，删除。"
 
-  :prev "Previous"
-  :next "Next"
-  :forget "Forget"
-  :remember "Remember"
+  :prev "上一个"
+  :next "下一个"
+  :forget "忘记"
+  :remember "记住"
 
   :finished-reviews "今日已完成"
   :finished-learning "今日已完成"
@@ -432,12 +430,12 @@ It is used to represent the card in other parts of the UI."
   :card-content-placeholder "有什么想记住的？"
   :note-content-placeholder "有什么想记住的？"
   :deck-page/search-placeholder "搜索此牌组"
-  :next-side "Next Side"
-  :reveal-next-side "Show next side"
-  :view-note-as-page "View as page"
+  :next-side "翻转卡片"
+  :reveal-next-side "显示另一面"
+  :view-note-as-page "以页面形式查看"
   :preview "预览"
-  :notes "Notes"
-  :decks "Decks"
+  :notes "笔记"
+  :decks "牌组"
 
   :add-to-reviews "添加到复习"
   :imported-deck-already-exists "此牌组已存在。"
@@ -446,45 +444,45 @@ It is used to represent the card in other parts of the UI."
 
   ;; Auto card generation from notes.
 
-  :import/import-failed "Unable to import collection"
-  :import/data-edn-not-found "Could not find data.edn or data.json file."
-  :import/invalid-data-edn "The data.edn file does not conform to the schema."
-  :import/media-file-too-big "This collection contains one or more attachments that are larger than 5MB."
+  :import/import-failed "导入收藏失败"
+  :import/data-edn-not-found "未找到 data.edn 或 data.json 文件。"
+  :import/invalid-data-edn "data.edn 文件不符合模式。"
+  :import/media-file-too-big "导入的文件包含一个或多个大于5MB的附件。"
 
-  :import-csv/import-failed "Unable to import CSV file"
-  :import-csv/failure-subtext "There was a problem when trying to parse the CSV file."
+  :import-csv/import-failed "CSV 导入失败"
+  :import-csv/failure-subtext "导入过程中发生错误。请确保你选择的文件是一个有效的 CSV 文件，并且符合我们的格式要求。"
 
-  :diagram/unable-to-load-file "Unable to to load file"
-  :diagram/file-too-large "File attachments larger than 5MB are not supported."
-  :diagram/replace-image? "Replace image?"
-  :diagram/replace-image-details "Do you want to replace the current image with the one you've just pasted?"
+  :diagram/unable-to-load-file "无法加载文件"
+  :diagram/file-too-large "不支持超过5MB的文件导入"
+  :diagram/replace-image? "替换图片？"
+  :diagram/replace-image-details "您是否要将当前图片替换为您刚刚粘贴的图片？"
 
-  :import/anki-collection-file-not-found "Could not find collection.anki2 or collection.anki21 file."
-  :import/unsupported-apkg-file:title "This format is not supported."
-  :import/unsupported-apkg-file:desc "As of Oct 31, 2023 the format of Anki exports has changed. Please export your collection using the older format in order to import them into Mochi."
-  :import/generic-error-title "An unexpected error occurred."
-  :import/generic-error-desc "The imported encountered an unexpected error when trying to impor this file. It could mean that there is a an issue with the file, or there is a bug in the importer."
-  :import/uncaught-exception "An unexpected error occurred while trying to import the file."
-  :unable-to-read-md-file "Unable to read .md file."
+  :import/anki-collection-file-not-found "无法找到collection.anki2或collection.anki21文件。"
+  :import/unsupported-apkg-file:title "此格式不支持。"
+  :import/unsupported-apkg-file:desc "自2023年10月31日起，Anki的导出格式已更新。请使用旧格式导出您的收藏，以便将其导入Mochi。"
+  :import/generic-error-title "发生错误"
+  :import/generic-error-desc "导入程序在尝试导入此文件时发生错误。此文件存在问题，或者导入程序存在错误。"
+  :import/uncaught-exception "导入文件时发生错误。"
+  :unable-to-read-md-file "无法读取 .md 文件。"
 
   ;; Import progress modal
   :importing "导入中…"
-  :emptying-trash "Emptying trash..."
-  :importing/extracting-archive "Extracting archive"
-  :importing/reading-data "Reading data"
-  :importing/saving-data "Saving data"
-  :import/select-or-create-deck "Select or create deck"
-  :import/new-deck "New deck"
+  :emptying-trash "清空垃圾箱..."
+  :importing/extracting-archive "解压文件中…"
+  :importing/reading-data "读取数据"
+  :importing/saving-data "保存数据"
+  :import/select-or-create-deck "选择或创建牌组"
+  :import/new-deck "新建牌组"
 
-  :import-modal/mochi-options "Mochi Import Options"
-  :import-modal/anki-options "Anki Import Options"
-  :import-modal/csv-options "CSV Import Options"
-  :import-modal/markdown-options "Markdown Import Options"
-  :import-modal/select-format "Select a format from the left."
+  :import-modal/mochi-options "Mochi导入设置"
+  :import-modal/anki-options "Anki导入设置"
+  :import-modal/csv-options "CSV导入设置"
+  :import-modal/markdown-options "Markdown导入设置"
+  :import-modal/select-format "从左侧选择一种格式。"
 
   :exporting "导出中…"
 
-  :auto-update/check-for-updates "Check for updates"
+  :auto-update/check-for-updates "检查更新"
   :auto-update
   {:auto-update.status/download-and-install "下载并安装"
    :auto-update.status/update-available "新版本可用！"
@@ -513,57 +511,57 @@ It is used to represent the card in other parts of the UI."
                                            (when msg
                                              [:<> [:br] msg])])}
   
-  :account.settings/delete-account "Delete my account"
-  :account.settings/deleting-account "Deleting account"
-  :account.settings/are-you-sure-delete-account "Are you really sure?"
+  :account.settings/delete-account "删除账户"
+  :account.settings/deleting-account "正在删除账户"
+  :account.settings/are-you-sure-delete-account "您确定要删除账户吗？"
 
-  :account.settings/delete-account-email "Your email address"
-  :account.settings/delete-account-confirm-password "Confirm your password"
-  :account.settings/delete-account-type-out-confirm "Type \"delete my account\" to confirm."
-  :account.settings/delete-account-please-read "Please read carefully."
+  :account.settings/delete-account-email "您的邮箱地址"
+  :account.settings/delete-account-confirm-password "确认您的密码"
+  :account.settings/delete-account-type-out-confirm "输入 \"delete my account\" 来确认。"
+  :account.settings/delete-account-please-read "请仔细阅读。"
   :account.settings/confirm-delete-account
   [:<>
    [:p
-    "This action " [:strong "cannot"] " be undone. Your account will be deleted " [:strong "immediately"] ". All associated data will be removed from Mochi's servers, including cloud data backups."]
-   [:p "If you have billing information stored on Stripe, that will also be removed."]
-   [:p "Your local data will not be affected."]]
+    "此操作 " [:strong "无法"] " 撤销。您的账户将被 " [:strong "立即"] " 删除。所有相关数据将从 Mochi 的服务器上移除，包括云数据备份。"]
+   [:p "如果您在 Stripe 上存储了账单信息，那也将被移除。"]
+   [:p "您的本地数据将不会受到影响。"]]
 
-  :confirm-password-then-sync "You seem to have been logged out. Please confirm your password to log back in."
-  :upgrade-confirm-password "Are you sure you want to upgrade? Confirm your password to continue."
-  :confirm-and-sync "Sync content"
-  :upgrade          "Upgrade"
+  :confirm-password-then-sync "您似乎已退出登录。请确认您的密码以重新登录。"
+  :upgrade-confirm-password "您确定要升级吗？请确认您的密码以继续。"
+  :confirm-and-sync "同步内容"
+  :upgrade          "升级"
   :pro "Pro"
     
-  :account-modal/are-you-sure-downgrade? "Are you sure you want to downgrade?"
-  :account-modal/downgrade-subtext "Your plan will switch at the end of the billing period. You can still access your data offline with the free plan."
-  :account-modal/confirm-downgrade "Yes, switch to the free plan"
+  :account-modal/are-you-sure-downgrade? "您确定要降级吗？"
+  :account-modal/downgrade-subtext "您的计划将在账单周期结束时切换。您仍然可以使用免费计划离线访问您的数据。"
+  :account-modal/confirm-downgrade "是的，切换到免费计划"
 
-  :account-modal/are-you-sure-upgrade? "Are you sure you want to upgrade?"
-  :account-modal/confirm-password "Confirm your password to continue."
-  :account-modal/confirm-upgrade "Upgrade"
-  :account-modal/confirm-upgrade:loading "Upgrading..."
+  :account-modal/are-you-sure-upgrade? "您确定要升级吗？"
+  :account-modal/confirm-password "确认您的密码以继续。"
+  :account-modal/confirm-upgrade "升级"
+  :account-modal/confirm-upgrade:loading "升级中…"
     
   ;; Checkout modal
     
   ;; Attachments
-  :attachments/too-large:title "Attachment too large"
-  :attachments/too-large:subtext "Attachments larger than 5MB are currently not supported."
-  :file-too-big "Attachments larger than 5MB are not supported."
+  :attachments/too-large:title "附件过大"
+  :attachments/too-large:subtext "当前不支持大于 5MB 的附件。"
+  :file-too-big "当前不支持大于 5MB 的附件。"
     
-  :ok "Ok"
+  :ok "好的"
 
   ;; Deck page
-  :review-all-cards      "Quick Review"
-  :review-searched-cards "Review results"
-  :review-filtered-cards "Review cards"
-  :no-filters-applied "No filters applied yet."
-  :add-filter "Add filter"
+  :review-all-cards      "快速复习"
+  :review-searched-cards "复习结果"
+  :review-filtered-cards "复习卡片"
+  :no-filters-applied "未应用筛选条件"
+  :add-filter "添加筛选条件"
 
-  :make-public "Published"
-  :copy-public-link "Copy Link to Note"
-  :published-tooltip "This deck and its cards are public. Anyone with the link can view it"
-  :duplicate-deck? "Do you want to save this deck?"
-  :public-deck-warning-duplicate? "You're viewing a published deck. You need to clone it first before you can make changes."
+  :make-public "发布牌组"
+  :copy-public-link "复制链接"
+  :published-tooltip "此牌组及其卡片为公开。拥有链接的人均可查看。"
+  :duplicate-deck? "您想要保存这个牌组吗？"
+  :public-deck-warning-duplicate? "您正在查看一个已发布的牌组。在进行更改之前，您需要先克隆它。"
 
   ;; CouchDB connection
   :couchdb-auth-failed "Unable to connect to remote database. Please contact support@mochi.cards"
@@ -571,82 +569,82 @@ It is used to represent the card in other parts of the UI."
   :markdown/heading-1       "H1"
   :markdown/heading-2       "H2"
   :markdown/heading-3       "H3"
-  :markdown/thematic-break  "New Side"
-  :markdown/bold            "Bold"
-  :markdown/italic          "Italic"
-  :markdown/strikethrough   "Strikethrough"
-  :markdown/highlight       "Highlight"
-  :markdown/link            "Link"
-  :markdown/reference       "Reference"
-  :markdown/media           "Media"
-  :markdown/list            "List"
-  :markdown/ordered-list    "Ordered List"
-  :markdown/quote           "Quote"
-  :markdown/definition-list "Definition List"
-  :markdown/cloze           "Hidden text"
-  :markdown/cloze-group     "Hidden text group"
-  :markdown/code            "Code"
-  :markdown/code-block      "Code Fence"
-  :markdown/latex           "Inline Latex"
-  :markdown/latex-block     "Display Latex"
-  :markdown/superscript     "Superscript"
-  :markdown/subscript       "Subscript"
-  :markdown/ruby            "Ruby characters"
-  :markdown/tag             "Tag"
+  :markdown/thematic-break  "分隔线"
+  :markdown/bold            "粗体"
+  :markdown/italic          "斜体"
+  :markdown/strikethrough   "删除线"
+  :markdown/highlight       "高亮"
+  :markdown/link            "链接"
+  :markdown/reference       "引用"
+  :markdown/media           "媒体"
+  :markdown/list            "列表"
+  :markdown/ordered-list    "有序列表"
+  :markdown/quote           "引用"
+  :markdown/definition-list "定义列表"
+  :markdown/cloze           "隐藏文本"
+  :markdown/cloze-group     "隐藏文本组"
+  :markdown/code            "代码"
+  :markdown/code-block      "代码块"
+  :markdown/latex           "内联 LaTeX"
+  :markdown/latex-block     "显示 LaTeX"
+  :markdown/superscript     "上标"
+  :markdown/subscript       "下标"
+  :markdown/ruby            "Ruby 注释"
+  :markdown/tag             "标签"
 
-  :shortcuts/add-card "Add a card"
-  :shortcuts/review-cards "Review cards that are due"
-  :shortcuts/learn-cards "Learn new cards"
-  :shortcuts/notebook-move "Move selection"
-  :shortcuts/notebook-esc "Cancel selection"
-  :shortcuts/notebook-preview "Preview card"
+  :shortcuts/add-card "添加卡片"
+  :shortcuts/review-cards "复习到期卡片"
+  :shortcuts/learn-cards "学习新卡片"
+  :shortcuts/notebook-move "移动选择"
+  :shortcuts/notebook-esc "取消选择"
+  :shortcuts/notebook-preview "预览卡片"
 
-  :shortcuts/delete-note "Delete note"
-  :shortcuts/edit-note "Edit note"
+  :shortcuts/delete-note "删除笔记"
+  :shortcuts/edit-note "编辑笔记"
 
-  :shortcuts/next-side "Show next side of card"
-  :shortcuts/prev-side "Hide last side"
-  :shortcuts/mark-remembered "Mark as \"remembered\""
-  :shortcuts/skip-and-mark-remembered "Skip sides and mark as \"remembered\""
-  :shortcuts/mark-forgot "Mark as \"forgot\""
-  :shortcuts/archive-card "Archive card"
-  :shortcuts/toggle-reverse-review "Toggle Reverse Reviews"
-  :shortcuts/delete-card "Delete card"
-  :shortcuts/edit-card "Edit card"
-  :shortcuts/replay-audio "Replay audio"
-  :shortcuts/pause-audio "Pause/play audio"
-  :shortcuts/split-card "Split card at cursor"
-  :shortcuts/save-and-add "Save and add a new card"
-  :shortcuts/save-and-exit "Save and finish editing."
-  :shortcuts/add-side "Add a new side"
-  :shortcuts/add-card-above "Add card above"
-  :shortcuts/add-card-below "Add card below"
+  :shortcuts/next-side "翻转卡面"
+  :shortcuts/prev-side "隐藏上一面"
+  :shortcuts/mark-remembered "标记为 \"记住\""
+  :shortcuts/skip-and-mark-remembered "跳过并标记为 \"记住\""
+  :shortcuts/mark-forgot "标记为 \"忘记\""
+  :shortcuts/archive-card "归档卡片"
+  :shortcuts/toggle-reverse-review "切换反向复习"
+  :shortcuts/delete-card "删除卡片"
+  :shortcuts/edit-card "编辑卡片"
+  :shortcuts/replay-audio "重播音频"
+  :shortcuts/pause-audio "暂停/播放音频"
+  :shortcuts/split-card "在光标处分割卡片"
+  :shortcuts/save-and-add "保存并添加新卡片"
+  :shortcuts/save-and-exit "保存并退出"
+  :shortcuts/add-side "添加卡面"
+  :shortcuts/add-card-above "在上方添加卡片"
+  :shortcuts/add-card-below "在下方添加卡片"
 
-  :shortcuts/exit-modal "Exit modal"
-  :shortcuts/save-editor "Save editor"
-  :shortcuts/show-shortcuts-help "Show this panel"
+  :shortcuts/exit-modal "退出模态框"
+  :shortcuts/save-editor "保存编辑器"
+  :shortcuts/show-shortcuts-help "显示此面板"
 
-  :shortcuts/move-card-up "Move card up"
-  :shortcuts/move-card-down "Move card down"
+  :shortcuts/move-card-up "移动卡片向上"
+  :shortcuts/move-card-down "移动卡片向下"
 
-  :shortcuts/editor:save "Save and exit"
-  :shortcuts/editor:exit "Exit without saving"
-  :shortcuts/editor:open-reference "Open reference"
-  :shortcuts/editor:new-card-from-selection "New card (from selection)"
+  :shortcuts/editor:save "退出并保存"
+  :shortcuts/editor:exit "退出不保存"
+  :shortcuts/editor:open-reference "打开引用"
+  :shortcuts/editor:new-card-from-selection "从选中内容创建新卡片"
 
 
-  :downgrade "Downgrade"
-  :downgrading "Downgrading..."
+  :downgrade "降级"
+  :downgrading "正在降级..."
 
   :update-credit-card "更新信用卡"
-  :updating-credit-card "更新信用卡中"
+  :updating-credit-card "正在更新信用卡"
    
 
-  :update-password "Update password"
-  :updating-password "Updating password"
+  :update-password "更新密码"
+  :updating-password "正在更新密码"
 
-  :password              "Password"
-  :password-confirmation "Password confirmation"
+  :password              "密码"
+  :password-confirmation "确认密码"
 
   :account-settings "账户设置"
  
@@ -654,77 +652,77 @@ It is used to represent the card in other parts of the UI."
   :syncing "同步中…"
   :reconnecting "重试中..."
   :sync-failed "同步失败"
-  :import-desktop-only "Importing is currently only supported in the desktop and mobile apps."
+  :import-desktop-only "导入功能目前仅在桌面和移动应用中支持。"
 
-  :review/review-cards "Review cards"
-  :review/learn-cards "Learn new cards"
-  :review/rereview-cards "Review missed cards"
-  :review/skip-rereviews "Skip and finish"
+  :review/review-cards "复习卡片"
+  :review/learn-cards "学习新卡片"
+  :review/rereview-cards "复习遗漏的卡片"
+  :review/skip-rereviews "跳过并完成"
 
-  :pages.review.done.title/percentage (fn [percentage-tag] [:<> "You remembered " percentage-tag " of cards."])
-  :pages.review.done.title/review-finished "Finished reviewing."
-  :pages.review.done.title/review-no-cards "No cards due today."
+  :pages.review.done.title/percentage (fn [percentage-tag] [:<> "你已经记住了 " percentage-tag " 的卡片。"])
+  :pages.review.done.title/review-finished "完成复习。"
+  :pages.review.done.title/review-no-cards "今天没有到期的卡片。"
 
-  :pages.review.done.title/rereview "Finished reviewing missed cards."
+  :pages.review.done.title/rereview "完成复习遗漏的卡片。"
 
-  :pages.review.done.title/new-cards-finished "Finished learning cards."
-  :pages.review.done.title/new-cards-empty "No new cards."
+  :pages.review.done.title/new-cards-finished "完成学习卡片。"
+  :pages.review.done.title/new-cards-empty "没有新的卡片。"
 
-  :pages.review.done.title/quick-study "No more cards left."
+  :pages.review.done.title/quick-study "没有更多卡片了。"
 
-  :pages.review.done.title/inbox "Inbox complete."
-  :pages.review.done.title/inbox-empty "Inbox is empty."
+  :pages.review.done.title/inbox "收件箱已完成。"
+  :pages.review.done.title/inbox-empty "收件箱是空的。"
 
-  :pages.review.done.review-cards/from-new-cards "Now let's review the cards you've learned."
-  :pages.review.done.review-cards/text "Now let's review the cards that are due today."
-  :pages.review.done.review-cards/button-tooltip "Press space to review cards."
+  :pages.review.done.review-cards/from-new-cards "现在让我们复习一下你学过的卡片。"
+  :pages.review.done.review-cards/text "现在让我们复习一下今天到期的卡片。"
+  :pages.review.done.review-cards/button-tooltip "按空格键复习卡片。"
 
-  :pages.review.done.learn-cards/in-other-decks "You have new cards in other decks."
-  :pages.review.done.learn-cards/text "How about learning some new cards?"
-  :pages.review.done.learn-cards/button-tooltip "Press space to learn new cards."
+  :pages.review.done.learn-cards/in-other-decks "你在其他牌组中还有一些新卡片。"
+  :pages.review.done.learn-cards/text "学习一些新卡片如何？"
+  :pages.review.done.learn-cards/button-tooltip "按空格键学习新卡片。"
 
-  :pages.review.done.rereview/text "Now let's review the cards you missed again."
-  :pages.review.done.rereview/button-tooltip "Press space to begin re-review."
+  :pages.review.done.rereview/text "现在让我们再次复习你遗漏的卡片。"
+  :pages.review.done.rereview/button-tooltip "按空格键开始重新复习。"
 
-  :pages.review.done/enjoy-your-day "Enjoy your day!"
+  :pages.review.done/enjoy-your-day "祝你今天过得愉快！"
 
-  :pouchdb/unable-to-save "Unable to save document"
-  :pouchdb/unknown-error [:<> "There was a problem while trying to save this document." [:br] "Please contact " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
-  :pouchdb/sqlite-corrupt-error [:<> "Database integrity issue detected. Please restart Mochi to repair."]
-  :couchdb/unable-to-sync "Failed to sync"
-  :couchdb/unauthorized [:<> "Unable to authenticate with the server," [:br] "please log in to re-authenticate."]
-  :couchdb/unknown-error [:<> "There was a problem while trying to sync." [:br] "Please contact " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
+  :pouchdb/unable-to-save "无法保存文档"
+  :pouchdb/unknown-error [:<> "保存此文档时出现问题。" [:br] "请联系 " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
+  :pouchdb/sqlite-corrupt-error [:<> "检测到数据库完整性问题。请重启 Mochi 进行修复。"]
+  :couchdb/unable-to-sync "同步失败"
+  :couchdb/unauthorized [:<> "无法与服务器进行身份验证，" [:br] "请登录以重新验证身份。"]
+  :couchdb/unknown-error [:<> "同步时出现问题。" [:br] "请联系 " [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]]
 
   :sync/attachment-sync-failed "Failed to sync attachments"
   :sync/attachment-sync-failed:text "An unexpected error prevented the attachments from syncing."
 
 
-  :loading/logging-in       "Checking for account..."
-  :loading/migrating        "Migrating data..."
+  :loading/logging-in       "检查账户中..."
+  :loading/migrating        "迁移数据中..."
   ;:loading/syncing          (fn [total] (str "Syncing data..." total))
-  :loading/syncing          "Syncing..."
-  :loading/reading-local-db "Loading cards..."
-  :loading/loading-data     "Indexing..."
+  :loading/syncing          "同步数据中..."
+  :loading/reading-local-db "加载卡片中..."
+  :loading/loading-data     "索引数据中..."
 
   :trash "回收站"
-  :trash/is-empty "The trash is empty."
-  :trash/empty "Empty trash"
-  :trash/empty-trash-tooltip "Permanently delete all items in the trash. // This action cannot be undone."
-  :trash/confirm-empty-title "Delete all trashed items?"
-  :trash/confirm-empty "Are you sure you want to delete all items in the trash? This action cannot be undone."
-  :trash/yes-empty-trash "Empty trash"
+  :trash/is-empty "回收站是空的"
+  :trash/empty "清空回收站"
+  :trash/empty-trash-tooltip "永久删除回收站中的所有项目。 // 此操作无法撤销。"
+  :trash/confirm-empty-title "删除所有已删除的项目？"
+  :trash/confirm-empty "你确定要删除回收站中的所有项目吗？此操作无法撤销。"
+  :trash/yes-empty-trash "清空回收站"
 
-  :trashed "Trash"
-  :restore "Restore"
+  :trashed "删除"
+  :restore "恢复"
 
-  :trash/delete-permanently "Delete permanently"
+  :trash/delete-permanently "永久删除"
 
-  :db/compact "Compact"
-  :db/compact-tooltip "Compacting the database is a one-time operation // It will remove unused data and free up disk space"
-  :db/confirm-compact-title "Compact the database now?"
-  :db/confirm-compact-subtext "This my take a few minutes depending on how much data there is."
-  :db/yes-compact "Yes, compact"
-  :db/compacting "Compacting..."
+  :db/compact "压缩数据库"
+  :db/compact-tooltip "压缩数据库是一次性操作 // 它将删除未使用的数据并释放磁盘空间"
+  :db/confirm-compact-title "是否立即压缩数据库？"
+  :db/confirm-compact-subtext "这可能需要几分钟，具体取决于数据量。"
+  :db/yes-compact "是，压缩"
+  :db/compacting "正在压缩..."
 
   :deck-stats/average-retention-rate
   (fn [rate] (str "Average retention rate: " rate))
@@ -732,90 +730,92 @@ It is used to represent the card in other parts of the UI."
   (fn [learned-count total] (str learned-count " out of " total " " (pluralize total "card") " learned"))
   :deck-stats/total-num-of-cards
   (fn [card-count]
-    (str "There are " card-count " " (pluralize card-count "card") " in this deck"))
+    (str "现有 " card-count " " (pluralize card-count "card") " 在此牌组"))
     
   ;; TODO: add sign up / sign in / subscribe button
   ;; TODO: Change copy depending on state.
   :banners/web-free-account-warning
   [:div
-   [:strong "Data not backed up and may be lost"]
+   [:strong "数据未备份，可能会丢失"]
    [:br]
    [:span {:style {:margin-right "6px"}}
-    "Data stored in the browser is temporary."
+    "数据存储在浏览器中是临时的。"
     [:br]
-    "Download the app or upgrade to sync your data."]]
+    "下载应用或升级账户以同步数据。"]]
   :banners/web-no-account-warning
   [:div
-   [:strong "Data not backed up and may be lost"]
+   [:strong "数据未备份，可能会丢失"]
    [:br]
    [:span {:style {:margin-right "6px"}}
-    "Data stored in the browser is temporary."
+    "数据存储在浏览器中是临时的。"
     [:br]
-    "Download the app or sign up to sync your data."]]
+    "下载应用或注册账户以同步数据。"]]
 
-  :banner/published-deck [:<> "This is a published deck. You can look around and make" [:br] "changes, but you'll have to clone it to save changes."]
+  :banner/published-deck [:<> "这是一个公开牌组。你可以随意查看并做出" [:br] "修改，但如果你想保存更改，请先克隆它。"]
 
-  :toast/created-card "Created card"
-  :toast/archived-card "Archived card"
-  :toast/unarchived-card "Un-archived card"
-  :toast/duplicate-card "Duplicated card"
-  :toast/pinned-card "Pinned card"
-  :toast/unpinned-card "Un-pinned card"
-  :toast/enabled-review-reverse "Reverse reviews enabled"
-  :toast/disabled-review-reverse "Reverse reviews disabled"
-  :toast/copied-link-to-card "Copied link to card"
-  :toast/learned-card "Added card to reviews"
-  :toast/saved-card "Saved card"
-  :toast/moved-card-to-trash "Moved to trash"
-  :toast/delete-template "Deleted template"
+   ;; Toasts
+
+  :toast/created-card "已创建卡片"
+  :toast/archived-card "已归档卡片"
+  :toast/unarchived-card "已取消归档卡片"
+  :toast/duplicate-card "已复制卡片"
+  :toast/pinned-card "已标记卡片"
+  :toast/unpinned-card "已取消标记卡片"
+  :toast/enabled-review-reverse "已启用反向复习"
+  :toast/disabled-review-reverse "已禁用反向复习"
+  :toast/copied-link-to-card "已复制卡片链接"
+  :toast/learned-card "已添加卡片到复习列表"
+  :toast/saved-card "已保存卡片"
+  :toast/moved-card-to-trash "已移动卡片到回收站"
+  :toast/delete-template "已删除模板"
   :toast/move-cards
   (fn [card-count]
-    (str "Moved " card-count " " (pluralize card-count "card")))
+    (str "已移动 " card-count " " (pluralize card-count "card")))
   :toast/moved-card
   (fn [card-count]
-    (str "Moved card to " card-count))
+    (str "已移动卡片到 " card-count))
   :toast/archive-cards
   (fn [card-count]
-    (str "Archived " card-count " " (pluralize card-count "card")))
+    (str "已归档 " card-count " " (pluralize card-count "card")))
   :toast/unarchive-cards
   (fn [card-count]
-    (str "Unarchived " card-count " " (pluralize card-count "card")))
+    (str "已取消归档 " card-count " " (pluralize card-count "card")))
   :toast/pin-cards
   (fn [card-count]
-    (str "Pin " card-count " " (pluralize card-count "card")))
+    (str "已标记 " card-count " " (pluralize card-count "card")))
   :toast/unpin-cards
   (fn [card-count]
-    (str "Unpin " card-count " " (pluralize card-count "card")))
+    (str "已取消标记 " card-count " " (pluralize card-count "card")))
   :toast/remove-cards-tag
   (fn [card-count]
-    (str "Removed tag from " card-count " " (pluralize card-count "card")))
+    (str "已移除标签从 " card-count " " (pluralize card-count "card")))
   :toast/add-cards-tag
   (fn [card-count]
-    (str "Added tag to " card-count " " (pluralize card-count "card")))
+    (str "已添加标签到 " card-count " " (pluralize card-count "card")))
   :toast/review-reverse-cards:on
   (fn [card-count]
-    (str "Turned on reverse reviews for " card-count " " (pluralize card-count "card")))
+    (str "已启用反向复习 " card-count " " (pluralize card-count "card")))
   :toast/review-reverse-cards:off
   (fn [card-count]
-    (str "Turned off reverse reviews for " card-count " " (pluralize card-count "card")))
+    (str "已禁用反向复习 " card-count " " (pluralize card-count "card")))
   :toast/learn-cards
   (fn [card-count]
-    (str "Added " card-count " " (pluralize card-count "card") " to the reviews"))
+    (str "已添加 " card-count " " (pluralize card-count "card") " 到复习列表"))
   :toast/trash-cards
   (fn [card-count]
-    (str "Moved " card-count " " (pluralize card-count "card") " to the trash"))
+    (str "已移动 " card-count " " (pluralize card-count "card") " 到回收站"))
   :toast/reset-cards-reviews
   (fn [card-count]
-    (str "Reset " card-count " " (pluralize card-count "card") " review history"))
+    (str "已重置 " card-count " " (pluralize card-count "card") " 的复习历史"))
   :toast/merge-cards
   (fn [card-count]
-    (str "Merged " card-count " " (pluralize card-count "card")))
+    (str "已合并 " card-count " " (pluralize card-count "card")))
 
-  :close "Close"
-  :undo "Undo"
-  :redo "Redo"
-    
-  :card-actions/review-reverse "Review reverse"
+  :close "关闭"
+  :undo "撤销"
+  :redo "重做"
+
+  :card-actions/review-reverse "反向复习"
     
   :kbd/ctrl  "⌃"
   :kbd/enter "⏎"
@@ -826,61 +826,60 @@ It is used to represent the card in other parts of the UI."
   :kbd/up    "↑"
   :kbd/down  "↓"
 
-  :deck-view-switcher/show-card-title "Show card title"
-  :preferences/notebook-show-context "Show Notebook card context"
+  :deck-view-switcher/show-card-title "显示卡片标题"
+  :preferences/notebook-show-context "在卡片列表中显示笔记内容"
   :deck-views/add-view "新建视图"
 
   :preferences/title "偏好设置"
-  :preferences/deck-title "Deck Preferences"
+  :preferences/deck-title "牌组偏好设置"
 
   :preferences/font-style "字体样式"
   :preferences/font-size "字体大小"
   :preferences/dark-mode "深色模式"
 
-  :preferences/reduce-animations:title "Reduce animations"
-  :preferences/reduce-animations:desc "Turning this on will disabled the animations that play during a review when marking a card as remembered or forgot."
+  :preferences/reduce-animations:title "减少动画"
+  :preferences/reduce-animations:desc "减少界面动画。启用此选项可以提高性能，特别是在较旧的设备上。"
 
-  :preferences/rtl:title "Force right-to-left"
-  :preferences/rtl:desc "Useful for languages like Hebrew or Arabic."
+  :preferences/rtl:title "强制从右到左"
+  :preferences/rtl:desc "强制界面从右到左显示。这对于使用从右到左语言的用户可能很有帮助，即使他们的操作系统设置为从左到右。"
 
-  :preferences/show-cloze:title "Show hidden text"
-  :preferences/show-cloze:desc "Display hidden text when previewing cards on the deck page."
+  :preferences/show-cloze:title "显示隐藏文本"
+  :preferences/show-cloze:desc "在牌组页面预览卡片时显示隐藏文本。"
 
-  :preferences/show-all-sides:title "Show all sides"
-  :preferences/show-all-sides:desc "Show all sides of a card on the deck page, not just the first."
+  :preferences/show-all-sides:title "显示所有面"
+  :preferences/show-all-sides:desc "在牌组页面显示卡片的所有面，而不仅仅是第一面。"
 
-  :preferences/show-nested-cards:title "Show cards from subdecks"
-  :preferences/show-nested-cards:desc "Displays all cards from any child decks, including decks nested several layers deep."
+  :preferences/show-nested-cards:title "显示子牌组中的卡片"
+  :preferences/show-nested-cards:desc "显示来自任何子牌组的卡片，包括嵌套多层的牌组。"
 
-  :preferences/show-subdecks:title "Show subdecks"
-  :preferences/show-subdecks:desc "Displays a list of subdecks at the top of the deck page."
+  :preferences/show-subdecks:title "显示子牌组"
+  :preferences/show-subdecks:desc "在牌组页面顶部显示子牌组列表。"
 
-  :preferences/spellcheck:title "Spell check"
-  :preferences/spellcheck:desc "Enable spell check when editing a card."
+  :preferences/spellcheck:title "拼写检查"
+  :preferences/spellcheck:desc "在编辑卡片时启用拼写检查。"
 
-  :preferences/char-limit:title "Card character limit"
-  :preferences/char-limit:desc "This option tracks and displays total characters used when creating a card. This can help when creating focused, atomic cards."
+  :preferences/char-limit:title "卡片字符限制"
+  :preferences/char-limit:desc "设置卡片内容的字符限制。启用此选项可以帮助你保持卡片简洁，专注于最重要的信息。"
 
   :preferences/code-block-soft-wrap:title "代码块软换行"
   :preferences/code-block-soft-wrap:desc "当 Markdown 代码块中的行超出窗口宽度时，会在下一行进行换行。"
 
-  :preferences/type-hidden-text:title "Type hidden text"
-  :preferences/type-hidden-text:desc "Hidden text (cloze deletions) become typable input boxes."
+  :preferences/type-hidden-text:title "输入隐藏文本"
+  :preferences/type-hidden-text:desc "隐藏文本（cloze deletions）变为可输入的文本框。"
 
-  :preferences/confirm-card-delete:title "Confirm when moving card to trash"
-  :preferences/confirm-card-delete:desc "When this option is on, you will be prompted to confirm when you attempt to move a card to the trash."
+  :preferences/confirm-card-delete:title "移动卡片到回收站时确认"
+  :preferences/confirm-card-delete:desc "当此选项开启时，当你尝试将卡片移动到回收站时，系统会提示你进行确认。"
+  :preferences/auto-update-enabled:title "启用自动更新通知"
+  :preferences/auto-update-enabled:desc "当此选项开启时，当有新版本可用时，你会在应用中收到通知。它不会自动下载或安装新版本。关闭此选项以完全禁用自动更新消息。"
 
-  :preferences/auto-update-enabled:title "Enable auto-updates"
-  :preferences/auto-update-enabled:desc "When this is on you will get notified in the app when a new version is available. It will not automatically download or install the new version. Turn this off to disable auto-update messages completely."
+  :preferences/auto-update-beta:title "Beta 版本"
+  :preferences/auto-update-beta:desc "帮助测试和调试未发布的功能。当 Beta 版本可用时，你会收到通知。你也会在新的稳定版本可用时收到通知。"
 
-  :preferences/auto-update-beta:title "Beta releases"
-  :preferences/auto-update-beta:desc "Help test and debug unreleased features. You will be notified when beta releases become available. You will also be notified when new stable releases become available as well."
+  :preferences/auto-update-backup:title "自动更新前备份"
+  :preferences/auto-update-backup:desc "当此选项开启时，在安装更新之前，应用会自动创建本地数据的备份。这可以帮助防止在更新过程中发生问题时丢失数据。"
 
-  :preferences/auto-update-backup:title "Backup local database"
-  :preferences/auto-update-backup:desc "Before a new version is downloaded, the local database will be backed up. Turn this off to skip local database backups."
-
-  :preferences/search-languages:title "Language support"
-  :preferences/search-languages:desc "Select the languages you want to use when searching. More languages require more memory, and some language combinations are generally incompatible (e.g. Japanese and Chinese)."
+  :preferences/search-languages:title "语言支持"
+  :preferences/search-languages:desc "选择你在搜索时想要使用的语言。更多的语言需要更多的内存，且某些语言组合通常是不兼容的（例如日语和中文）。"
 
   :review-settings/title (fn [& [parent]]
                           (str (when parent (str (:name parent) "の"))
@@ -926,10 +925,10 @@ It is used to represent the card in other parts of the UI."
   :review-settings/cancel "取消"
 
   :account-modal/title "Account Settings"
-  :account-modal/update-credit-card "Update credit card"
-  :account-modal/change-password    "Change password"
-  :account-modal/current-plan       "Current plan"
-  :account-modal/already-cancelled  "Already downgraded"
+  :account-modal/update-credit-card "更新信用卡"
+  :account-modal/change-password    "更改密码"
+  :account-modal/current-plan       "当前订阅计划"
+  :account-modal/already-cancelled  "已取消订阅"
 
   :sans-serif "Sans serif"
   :serif "Serif"
@@ -943,24 +942,24 @@ It is used to represent the card in other parts of the UI."
   :sort/created-at      "创建日期"
   :sort/updated-at      "更新日期"
   :sort/interval-length "上次间隔"
-  :sort/last-review-date "Last reviewed"
-  :sort/due-date        "终止日"
+  :sort/last-review-date "最后复习日期"
+  :sort/due-date        "终止日期"
   :sort/random          "顺序不同"
-  :sort/referenced-count "Reference count"
+  :sort/referenced-count "引用次数"
 
-  :selection-popover/furigana  "Add furigana"
-  :selection-popover/cloze     "Hide text"
-  :selection-popover/add-side  "Add Side"
-  :selection-popover/split-card  "Split card"
+  :selection-popover/furigana  "添加假名"
+  :selection-popover/cloze     "隐藏文本"
+  :selection-popover/add-side  "添加卡面"
+  :selection-popover/split-card  "分割卡片"
   :selection-popover/add-card "选择/添加牌组" ;; Make card from selection
-  :selection-popover/translate "Translate"
-  :selection-popover/add-to-card "Add to card"
+  :selection-popover/translate "翻译"
+  :selection-popover/add-to-card "添加到卡片"
 
-  :activate-account/resend-token      "Resend code"
-  :activate-account/token:placeholder "Paste login code here."
-  :activate-account/token-sent        "Activation token sent."
-  :activate-account/submit            "Activate account"
-  :activate-account/submiting         "Activating..."
+  :activate-account/resend-token      "重新发送验证码"
+  :activate-account/token:placeholder "请输入验证码"
+  :activate-account/token-sent        "验证码已发送到您的邮箱。"
+  :activate-account/submit            "激活账户"
+  :activate-account/submiting         "激活中"
 
   :onboarding/go-back "← 返回"
   :onboarding/skip "Skip →"
@@ -986,70 +985,70 @@ It is used to represent the card in other parts of the UI."
   :log-in/send-token "发送令牌"
   :log-in/sending-token "发送中…"
 
-  :checkout/monthly   "Pay monthly"
-  :checkout/annually  "Pay annually"
-  :checkout/submit    "Subscribe"
-  :checkout/submiting "Subscribing..."
-  :checkout/cancel    "Upgrade later"
+  :checkout/monthly   "月付"
+  :checkout/annually  "年付"
+  :checkout/submit    "订阅"
+  :checkout/submiting "订阅中..."
+  :checkout/cancel    "之后升级订阅"
 
   :breadcrumb/go-to-deck (fn [deck-name] (str deck-name "に行く"))
-  :breadcrumb/click-to-rename "Click to rename deck"
-  :breadcrumb/click-to-move "Click to move to a different deck | M"
+  :breadcrumb/click-to-rename "点击此处重命名牌组"
+  :breadcrumb/click-to-move "点击移动到不同牌组 | M"
 
-  :speech-synthesis/generic-error "Something went wrong!"
+  :speech-synthesis/generic-error "发生错误！"
     
-  :mobile-header/preview-card "Preview card"
-  :create-new-card/title "Create new card"
+  :mobile-header/preview-card "复习发片"
+  :create-new-card/title "新建卡片"
     
-  :tooltip/attach-media "Attach media to this card"
-  :app/update-available "A new version is available!"
-  :app/mobile-update-available "Update available!"
+  :tooltip/attach-media "为此卡片添加媒体"
+  :app/update-available "新版本可用！"
+  :app/mobile-update-available "更新可用！"
     
-  :alert/database-migration-required "Database migration required"
-  :alert/download-1-11-3 "Please download and run version 1.11.3 before using this version."
+  :alert/database-migration-required "需要迁移数据库"
+  :alert/download-1-11-3 "使用此版本前请下载并运行1.11.3版本"
 
-  :deck-progress/maxed "Burned"
-  :deck-progress/learned "Learned"
-  :deck-progress/total "Total"
-  :deck-progress/archived "Archived"
+  :deck-progress/maxed "熟练"
+  :deck-progress/learned "已学"
+  :deck-progress/total "全部"
+  :deck-progress/archived "归档"
     
-  :filterer/no-templates "No templates"
+  :filterer/no-templates "没有模板"
 
-  :actions/pin-card "Pin card"
-  :actions/unpin-card "Unpin card"
+  :actions/pin-card "固定卡片"
+  :actions/unpin-card "取消固定"
 
-  :errors/initial-load:text "Unable to load data"
+  :errors/initial-load:text "无法加载数据"
   :errors/initial-load:subtext
   [:<>
-   "An unexpected error occurred while trying to load your local data."
+   "加载本地数据时发生错误"
    [:br] [:br]
-   "Please contact "
+   "请联系 "
    [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]
    "."]
 
-  :errors/initial-sync:text "Failed to sync data"
+  :errors/initial-sync:text "同步数据失败"
   :errors/initial-sync:subtext
   [:<>
-   "There was an error while trying to sync. Please restart the app to try again, or contact "
+   "同步数据时发生错误。请重启应用以重试，或联系 "
    [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]
    "."]
 
-  :errors/sqlite-migration:text "Unable to migrate database"
+  :errors/sqlite-migration:text "无法迁移数据库"
   :errors/sqlite-migration:subtext:android
   [:<>
-   "There was a problem when trying to migrate the database to SQLite."
+   "迁移数据库到SQLite时发生错误。"
    [:br] [:br]
-   "Falling back to IndexedDB. Please contact "
+   "回退到 IndexedDB。请联系 "
    [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]
    "."]
   :errors/sqlite-migration:subtext:desktop
   [:<>
-   "There was a problem when trying to migrate the database to SQLite."
+   "迁移数据库到SQLite时发生错误。"
    [:br] [:br]
-   "Please revert to the previous version and contact "
+   "请回退版本并联系 "
    [:a {:href "mailto:support@mochi.cards"} "support@mochi.cards"]
    "."]
-  :errors/sqlite-migration:download-link "Download previous version 1.14.7"
+  :errors/sqlite-migration:download-link "下载最新版本 1.14.7"
   :errors/sqlite-migration:download-url:mac "https://download.mochi.cards/releases/Mochi-1.14.7.dmg"
   :errors/sqlite-migration:download-url:linux "https://download.mochi.cards/releases/Mochi-1.14.7.AppImage"
   :errors/sqlite-migration:download-url:windows "https://download.mochi.cards/releases/Mochi%20Setup%201.14.7.exe"
@@ -1068,65 +1067,65 @@ It is used to represent the card in other parts of the UI."
        [:br] [:br]
        "The primary field already contains the following value:"]
     
-  :transcription/attachment-not-found-error "Input attachment not found."
-  :transcription/attachment-too-large-error "Input attachment exceeds max file size of 1MB."
+  :transcription/attachment-not-found-error "无法找到导入的附件"
+  :transcription/attachment-too-large-error "导入的附件大小超过1MB。"
   :modal.settings/inherited-setting-label (fn [x] [:<> "Using default: " [:strong x]])
-  :modal.settings/inherited-setting-tooltip-deck (fn [deck-name] (str "This setting has been inherited from the deck " deck-name))
-  :modal.settings/inherited-setting-tooltip-global "This setting has been inherited from Base settings"
+  :modal.settings/inherited-setting-tooltip-deck (fn [deck-name] (str "此设置已从牌组中继承" deck-name))
+  :modal.settings/inherited-setting-tooltip-global "此设置已从数据设置中继承"
 
-  :modal.settings.sections/account "Account"
-  :modal.settings.pages/profile "Profile"
-  :modal.settings.pages.profile.submit/success "Profile updated successfully."
-  :modal.settings.pages.profile.submit/error "Unable to update profile."
-  :modal.settings.pages.profile.name/title "Name"
-  :modal.settings.pages.profile.name/desc "Should match your payment method."
-  :modal.settings.pages.profile.email/title "Email"
-  :modal.settings.pages.profile.email/desc "How we can reach you."
-  :modal.settings.pages.profile.password/title "Password"
-  :modal.settings.pages.profile.password/desc "Your password needs to be at least 6 characters long."
-  :modal.settings.pages.profile.danger-zone/title "Danger zone"
-  :modal.settings.pages.profile.danger-zone/desc "This will delete your user account, billing information, and any cloud data backups."
+  :modal.settings.sections/account "账户"
+  :modal.settings.pages/profile "个人资料"
+  :modal.settings.pages.profile.submit/success "个人资料更新成功。"
+  :modal.settings.pages.profile.submit/error "个人资料更新失败。"
+  :modal.settings.pages.profile.name/title "昵称"
+  :modal.settings.pages.profile.name/desc "应与您的付款方式相符。"
+  :modal.settings.pages.profile.email/title "电子邮箱"
+  :modal.settings.pages.profile.email/desc "我们如何让联系您。"
+  :modal.settings.pages.profile.password/title "密码"
+  :modal.settings.pages.profile.password/desc "密码要求至少六位字符。"
+  :modal.settings.pages.profile.danger-zone/title "危险区域"
+  :modal.settings.pages.profile.danger-zone/desc "这将删除您的用户账户、账单信息以及任何云数据备份。"
 
-  :modal.settings.pages/subscription "Subscription"
+  :modal.settings.pages/subscription "订阅"
 
-  :modal.settings.sections/preferences "Preferences"
-  :modal.settings.pages/appearance "Appearance"
-  :modal.settings.options.custom-translations/title "Custom translations"
-  :modal.settings.options.custom-translations/desc [:<> "Upload an EDN file containing translation overrides. " [:a {:href "https://github.com/mochi-cards/mochi-translations" :target "_blank"} "Learn more"] "."]
+  :modal.settings.sections/preferences "偏好"
+  :modal.settings.pages/appearance "外观"
+  :modal.settings.options.custom-translations/title "自制翻译"
+  :modal.settings.options.custom-translations/desc [:<> "上传一个包含翻译对照表的EDN文件。 " [:a {:href "https://github.com/mochi-cards/mochi-translations" :target "_blank"} "了解更多"] "."]
 
-  :modal.settings.pages/cards "Cards"
-  :modal.settings.pages/editing "Editing"
-  :modal.settings.pages/decks "Decks"
-  :modal.settings.pages/attachments "Attachments"
-  :modal.settings.pages/notebook-view "Notebook view"
-  :modal.settings.pages/notifications "Notifications"
+  :modal.settings.pages/cards "卡片"
+  :modal.settings.pages/editing "编辑"
+  :modal.settings.pages/decks "牌组"
+  :modal.settings.pages/attachments "附件"
+  :modal.settings.pages/notebook-view "笔记视图"
+  :modal.settings.pages/notifications "消息通知"
 
-  :modal.settings.sections/reviewing "Reviewing"
-  :modal.settings.pages/review-settings "Review settings"
-  :modal.settings.pages/scheduling "Scheduling"
+  :modal.settings.sections/reviewing "复习中"
+  :modal.settings.pages/review-settings "复习设置"
+  :modal.settings.pages/scheduling "复习计划"
 
-  :modal.settings.sections/system "System"
-  :modal.settings.pages/general "General"
-  :modal.settings.pages/app-update "App update"
-  :modal.settings.pages/search "Search"
-  :modal.settings.pages/experimental "Experimental"
-  :modal.settings.pages/about "About"
+  :modal.settings.sections/system "系统"
+  :modal.settings.pages/general "常规"
+  :modal.settings.pages/app-update "软件更新"
+  :modal.settings.pages/search "搜索"
+  :modal.settings.pages/experimental "实验性选项"
+  :modal.settings.pages/about "关于"
   :modal.settings.pages.about/desc 
   (fn [{:keys [year version]}]
     [:<>
-     [:p (str "Mochi version " version)]
+     [:p (str "Mochi版本 " version)]
      [:p (str "Copyright © 2019-" year " Mochi Cards, LLC")]
-     [:p "Some dictionary data is copyright © 2022 National Institute of Korean Language and is released under the Creative Commons Attribution-ShareAlike License."]])
+     [:p "部分词典数据版权©2022韩国语学研究院，已根据知识共享署名-相同方式共享许可发布。"]])
 
-  :settings.custom-translation.error.alert/text "Could not parse translation file"
-  :settings.custom-translation.error.alert/subtext "Please check the EDN syntax."
+  :settings.custom-translation.error.alert/text "无法解析翻译文件"
+  :settings.custom-translation.error.alert/subtext "请检查 EDN syntax."
 
-  :settings.custom-translation/no-translation "No custom translation"
-  :settings.custom-translation/new-translation "Add translation"
-  :settings.custom-translation/loading "Loading..."
+  :settings.custom-translation/no-translation "没有自制翻译"
+  :settings.custom-translation/new-translation "添加翻译"
+  :settings.custom-translation/loading "加载中..."
 
-  :preferences/css-theme:no-theme "No theme"
-  :preferences/css-theme:new-theme "Add theme"
+  :preferences/css-theme:no-theme "没有主题"
+  :preferences/css-theme:new-theme "添加主题"
 
   :pages.review.review-buttons.skip-back/tooltip "返回上一张 // 稍后查看当前卡片 | ←"
   :pages.review.review-buttons.skip-forward/tooltip "前往下一张 // 稍后查看当前卡片 | →"
