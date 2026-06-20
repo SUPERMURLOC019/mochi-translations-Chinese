@@ -55,6 +55,16 @@ This project aims to provide a better experience for Chinese users. About **90%*
 * 随着 Mochi Card 更新，可能会出现新的未翻译内容
   New untranslated content may appear after Mochi Card updates.
 
+## 🤖 关于翻译 | About the Translation
+
+### 中文
+
+本项目的翻译工作由人工完成，并在部分内容中使用 AI 辅助，以提高翻译效率和术语一致性。若发现翻译错误、表述不自然或存在遗漏，欢迎提交 Issue 或 Pull Request 进行反馈和改进。
+
+### English
+
+The translation is primarily maintained manually, with AI assistance used for certain parts to improve efficiency and terminology consistency. If you find any mistranslations, awkward wording, or missing content, feel free to open an Issue or submit a Pull Request.
+
 ## 🤝 贡献 | Contributing
 
 欢迎提交 Issue 或 Pull Request，一起完善中文翻译。
