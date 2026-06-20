@@ -24,6 +24,26 @@ This project aims to provide a better experience for Chinese users. About **90%*
 * 🛠 尽可能保持原版术语和表达习惯
   Preserves the original terminology and wording whenever possible
 
+## 📦 使用方法 | Usage
+
+### 中文
+
+1. 下载 `translation.den` 文件。
+2. 打开 Mochi。
+3. 点击 **Settings**。
+4. 进入 **General**。
+5. 在 **Custom Translation** 选项中选择下载好的 `translation.den` 文件并导入。
+6. 导入完成后即可使用简体中文界面。
+
+### English
+
+1. Download the `translation.den` file.
+2. Open Mochi.
+3. Go to **Settings**.
+4. Navigate to **General**.
+5. Under **Custom Translation**, select and import the downloaded `translation.den` file.
+6. The Simplified Chinese interface will be available after importing.
+
 ## ⚠️ 已知问题 | Known Issues
 
 * 部分内容尚未完成翻译
